@@ -1,0 +1,39 @@
+#box1{
+  height: 100px;
+  width: 100px;
+  background-color: chartreuse;
+}
+
+
+#box2{
+  height: 50%;
+  width: 50%;
+  background-color: blue;
+}
+
+
+#box3{
+  font-size: 12px;
+  background-color: pink;
+  height: 100px;
+  width: 100px;
+}
+#box4{
+  font-size: 1 em;
+  background-color: brown;
+  height: 50%;
+  width: 50%;
+}
+
+#box5{
+  
+  background-color: rgb(42, 71, 165);
+  height: 100vh;
+  width: 50%;
+}
+#box6{
+  
+  background-color: rgb(165, 42, 42);
+  height: 100vh;
+  width: 100vw;
+}

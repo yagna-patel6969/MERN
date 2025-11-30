@@ -1,0 +1,25 @@
+/* NAME */
+#lkj{
+    color: aqua;
+}
+#uu{
+    background-color:chocolate;
+    font-size: large;
+}
+/* RGB */
+#k{
+    background-color:rgb(599,690,200);
+}
+#kk{
+    color: rgb( 69, 69, 69);
+    /* color: rgba(red, green, blue, alpha); */
+    /* alpha is nothing but its a transparency level of color */
+}
+/* HEX */
+.olp{
+    color: #1611a5;
+}
+/* HSl */
+.ikl{
+    color: hsl(0, 71%, 45%);
+}

@@ -1,0 +1,12 @@
+#div1{
+    height: 100px;
+    width: 100px;
+    padding: 25px;
+    margin: 25px;
+}
+#div1{
+    background-color: rgba(0, 255 ,0,0.99);
+}
+#div2{
+    color: rgba(255, 0, 0,1 );
+}

@@ -1,0 +1,35 @@
+/* border */
+#a{
+    background-color: aqua;
+    border:solid;
+    border-color: rgb(38, 0, 255);
+    border-width: 10px;
+    border-radius: 10px;
+}
+#s{
+    background-color: burlywood;
+    border:dotted;
+    border-radius: 10px;
+    border-color: black;
+     border-width: 10px;
+    }
+#d{
+    background-color: rgb(255, 0, 0);
+    /* border: solid;
+    border-top:30px;
+    border-color: rgb(241, 0, 0); */
+}
+#f{
+    background-color: yellow;
+    border-bottom-left-radius: 10px;
+    border-color: blueviolet;
+}
+h2{
+    height: 50px;
+    width: 50px;/*for circle we have to do height=width and radius=50%*/
+    border:solid,2px,red;
+    text-align: center;
+    border-radius: 50%;
+}
+
+ 

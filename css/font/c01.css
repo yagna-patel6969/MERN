@@ -1,0 +1,14 @@
+h1{
+background-color: aqua;
+}
+p{
+    background-color:brown  ;
+    color:beige;
+    font-weight: 1000;
+    font-size:large;
+    font-style: oblique;
+     }
+     article{
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+         line-height:50px;
+     }

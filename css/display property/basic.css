@@ -1,0 +1,28 @@
+div{
+    height: 100px;
+    width: 100px;
+    padding: 25px;
+    margin: 25px;
+}
+#div1{
+    background-color: brown;
+}
+#div2{
+    background-color:blue;
+    display: inline; 
+}
+#div3{
+    display: inline-block;
+    background-color:pink;
+}
+
+/* #div2{
+    background-color:blue;
+    display:none;
+} */
+/* #div2{
+    background-color:blue;
+    visibility: hidden;
+} */
+
+ 

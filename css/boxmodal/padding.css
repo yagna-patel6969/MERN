@@ -1,0 +1,49 @@
+/* /padding */
+.g{
+    background-color: antiquewhite;
+    border:solid;
+    border-width:5px;
+    border-radius:2px;
+    padding:50px;
+}
+
+#para2{
+    background-color: antiquewhite;
+    border:solid;
+    border-width:5px;
+    border-radius:2px;
+   padding-left:50px;
+}
+
+#para3{
+    background-color: antiquewhite;
+    border:solid;
+    border-width:5px;
+    border-radius:2px;
+    padding-bottom:50px;
+}
+
+#para4{
+    background-color: antiquewhite;
+    border:solid;
+    border-width:5px;
+    border-radius:2px;
+    padding-right: 50px;
+}
+
+#para5{
+    background-color: antiquewhite;
+    border:solid;
+    border-width:5px;
+    border-radius:2px;
+    padding-top: 50px;
+}
+
+#para6{
+    background-color: antiquewhite;
+    border:solid;
+    border-width:5px;
+    border-radius:2px;
+    padding:50px 40px 60px 90px;
+           /*top right bot left--->clock wise*/
+}

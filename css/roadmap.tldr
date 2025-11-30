@@ -1,0 +1,1987 @@
+{
+	"tldrawFileFormatVersion": 1,
+	"schema": {
+		"schemaVersion": 2,
+		"sequences": {
+			"com.tldraw.store": 5,
+			"com.tldraw.asset": 1,
+			"com.tldraw.camera": 1,
+			"com.tldraw.document": 2,
+			"com.tldraw.instance": 25,
+			"com.tldraw.instance_page_state": 5,
+			"com.tldraw.page": 1,
+			"com.tldraw.instance_presence": 6,
+			"com.tldraw.pointer": 1,
+			"com.tldraw.shape": 4,
+			"com.tldraw.asset.bookmark": 2,
+			"com.tldraw.asset.image": 5,
+			"com.tldraw.asset.video": 5,
+			"com.tldraw.shape.group": 0,
+			"com.tldraw.shape.text": 3,
+			"com.tldraw.shape.bookmark": 2,
+			"com.tldraw.shape.draw": 2,
+			"com.tldraw.shape.geo": 10,
+			"com.tldraw.shape.note": 9,
+			"com.tldraw.shape.line": 5,
+			"com.tldraw.shape.frame": 1,
+			"com.tldraw.shape.arrow": 7,
+			"com.tldraw.shape.highlight": 1,
+			"com.tldraw.shape.embed": 4,
+			"com.tldraw.shape.image": 5,
+			"com.tldraw.shape.video": 4,
+			"com.tldraw.binding.arrow": 1
+		}
+	},
+	"records": [
+		{
+			"gridSize": 10,
+			"name": "",
+			"meta": {},
+			"id": "document:document",
+			"typeName": "document"
+		},
+		{
+			"meta": {},
+			"id": "page:page",
+			"name": "Page 1",
+			"index": "a1",
+			"typeName": "page"
+		},
+		{
+			"x": -1442.8801045502628,
+			"y": -477.6422250163894,
+			"rotation": 0,
+			"isLocked": false,
+			"opacity": 1,
+			"meta": {},
+			"id": "shape:hcApHnbXP1oJcL9U-7rZb",
+			"type": "text",
+			"props": {
+				"color": "black",
+				"size": "l",
+				"w": 2290.62060546875,
+				"font": "mono",
+				"textAlign": "middle",
+				"autoSize": true,
+				"scale": 1,
+				"richText": {
+					"type": "doc",
+					"content": [
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Level 1 - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=734s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "12:14"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "- Syntax - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=947s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "15:47"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "- Including CSS - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=1193s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "19:53"
+								},
+								{
+									"type": "text",
+									"text": "  "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": " - Color - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=1728s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "28:48"
+								},
+								{
+									"type": "text",
+									"text": " "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "  - Background color - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=2050s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "34:10"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "- Color system - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=2384s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "39:44"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "- Color palette - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=3280s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "54:40"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "- Selectors - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=3398s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "56:38"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "-- Pratice set 1 - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=3895s&pp=0gcJCTAAlc8ueATH",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "1:04:55"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "- Text - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=4646s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "1:17:26"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "- Units in CSS - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=6122s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "1:42:02"
+								},
+								{
+									"type": "text",
+									"text": " "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "  -- Pratice set 2 - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=6532s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "1:48:52"
+								},
+								{
+									"type": "text",
+									"text": " "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Level 2 - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=6944s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "1:55:44"
+								},
+								{
+									"type": "text",
+									"text": "  "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": " - Box model in CSS - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=6948s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "1:55:48"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "- Height - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=7286s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "2:01:26"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "- Width - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=7426s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "2:03:46"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "- Border - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=7569s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "2:06:09"
+								},
+								{
+									"type": "text",
+									"text": " "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "  - Padding - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=8172s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "2:16:12"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "- Margin - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=8496s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "2:21:36"
+								},
+								{
+									"type": "text",
+									"text": "  "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": " -- Pratice set 3 - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=8689s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "2:24:49"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "- Display property - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=9498s&pp=0gcJCTAAlc8ueATH",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "2:38:18"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "- Visibility property - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=10060s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "2:47:40"
+								},
+								{
+									"type": "text",
+									"text": " "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "  - Alpha (opacity) - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=10111s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "2:48:31"
+								},
+								{
+									"type": "text",
+									"text": "  "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": " -- Pratice set 4 - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=10353s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "2:52:33"
+								},
+								{
+									"type": "text",
+									"text": " "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Level 3 - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=10968s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "3:02:48"
+								},
+								{
+									"type": "text",
+									"text": " "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "  - Units in CSS - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=10975s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "3:02:55"
+								},
+								{
+									"type": "text",
+									"text": "  "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": " - Percentage - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=11066s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "3:04:26"
+								},
+								{
+									"type": "text",
+									"text": "  "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": " - em - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=11359s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "3:09:19"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "- rem - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=11597s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "3:13:17"
+								},
+								{
+									"type": "text",
+									"text": "  "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": " - vh and vw - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=11697s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "3:14:57"
+								},
+								{
+									"type": "text",
+									"text": "  "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": " - Position - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=11775s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "3:16:15"
+								},
+								{
+									"type": "text",
+									"text": "     "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": " - static - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=11816s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "3:16:56"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "   - relative - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=12060s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "3:21:00"
+								},
+								{
+									"type": "text",
+									"text": "    "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "  - absolute - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=12165s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "3:22:45"
+								},
+								{
+									"type": "text",
+									"text": "    "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "  - fixed - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=12386s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "3:26:26"
+								},
+								{
+									"type": "text",
+									"text": "    "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "  - sticky - "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "   - z-index - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=12649s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "3:30:49"
+								},
+								{
+									"type": "text",
+									"text": "  "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": " - Background image - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=13010s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "3:36:50"
+								},
+								{
+									"type": "text",
+									"text": "  "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": " - Background size - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=13225s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "3:40:25"
+								},
+								{
+									"type": "text",
+									"text": " h"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": " -- Pratice set 5 - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=13426s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "3:43:46"
+								},
+								{
+									"type": "text",
+									"text": " "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Level 4 - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=13833s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "3:50:33"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "- Flexbox - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=13848s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "3:50:48"
+								},
+								{
+									"type": "text",
+									"text": " "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "  - The Flex model - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=14036s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "3:53:56"
+								},
+								{
+									"type": "text",
+									"text": " "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "  - Flexbox direction - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=14297s&pp=0gcJCTAAlc8ueATH",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "3:58:17"
+								},
+								{
+									"type": "text",
+									"text": " "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "  - Flex properties for Flex Container [justify-content, flex-wrap, align-items, align-content] - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=14633s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "4:03:53"
+								},
+								{
+									"type": "text",
+									"text": " "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "  - Flex properties for Flex Item [align-self, flex-grow, flex-shrink] - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=15059s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "4:10:59"
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "-- Pratice set 6 - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=15516s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "4:18:36"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "- Media queries - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=16495s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "4:34:55"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "-- Pratice set 7 - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=16996s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "4:43:16"
+								},
+								{
+									"type": "text",
+									"text": " "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "Level 5 - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=17252s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "4:47:32"
+								},
+								{
+									"type": "text",
+									"text": "  "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": " - Transition - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=17306s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "4:48:26"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "- Transform - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=17944s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "4:59:04"
+								},
+								{
+									"type": "text",
+									"text": "  "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "    - rotate - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=17966s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "4:59:26"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "   - scale - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=18317s&pp=0gcJCTAAlc8ueATH",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "5:05:17"
+								},
+								{
+									"type": "text",
+									"text": "  "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "    - translate - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=18540s&pp=0gcJCTAAlc8ueATH",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "5:09:00"
+								},
+								{
+									"type": "text",
+									"text": "   "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "   - skew - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=18754s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "5:12:34"
+								},
+								{
+									"type": "text",
+									"text": " "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "  - Animation - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=18817s&pp=0gcJCTAAlc8ueATH",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "5:13:37"
+								},
+								{
+									"type": "text",
+									"text": " "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "  - Animation shorthand - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=19515s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "5:25:15"
+								},
+								{
+									"type": "text",
+									"text": "  "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": " - Animation % - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=19680s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "5:28:00"
+								},
+								{
+									"type": "text",
+									"text": " "
+								}
+							]
+						},
+						{
+							"type": "paragraph",
+							"attrs": {
+								"dir": "auto"
+							},
+							"content": [
+								{
+									"type": "text",
+									"text": "  -- Practice Set 8 - "
+								},
+								{
+									"type": "text",
+									"marks": [
+										{
+											"type": "link",
+											"attrs": {
+												"href": "https://www.youtube.com/watch?v=ESnrn1kAD4E&t=19771s",
+												"target": "",
+												"rel": "noopener noreferrer nofollow",
+												"class": "yt-core-attributed-string__link yt-core-attributed-string__link--call-to-action-color"
+											}
+										}
+									],
+									"text": "5:29:31"
+								}
+							]
+						}
+					]
+				}
+			},
+			"parentId": "page:page",
+			"index": "a1Ho8lcV",
+			"typeName": "shape"
+		},
+		{
+			"id": "pointer:pointer",
+			"typeName": "pointer",
+			"x": -493.9381661632026,
+			"y": -463.3090955875756,
+			"lastActivityTimestamp": 1762890213974,
+			"meta": {}
+		},
+		{
+			"followingUserId": null,
+			"opacityForNextShape": 1,
+			"stylesForNextShape": {},
+			"brush": null,
+			"scribbles": [],
+			"cursor": {
+				"type": "move",
+				"rotation": 0
+			},
+			"isFocusMode": false,
+			"exportBackground": true,
+			"isDebugMode": false,
+			"isToolLocked": false,
+			"screenBounds": {
+				"x": 0,
+				"y": 0,
+				"w": 904.017822265625,
+				"h": 594.1964111328125
+			},
+			"insets": [
+				false,
+				false,
+				true,
+				false
+			],
+			"zoomBrush": null,
+			"isGridMode": false,
+			"isPenMode": false,
+			"chatMessage": "",
+			"isChatting": false,
+			"highlightedUserIds": [],
+			"isFocused": true,
+			"devicePixelRatio": 2.240000009536743,
+			"isCoarsePointer": false,
+			"isHoveringCanvas": true,
+			"openMenus": [],
+			"isChangingStyle": false,
+			"isReadonly": false,
+			"meta": {},
+			"duplicateProps": null,
+			"id": "instance:instance",
+			"currentPageId": "page:page",
+			"typeName": "instance"
+		},
+		{
+			"editingShapeId": null,
+			"croppingShapeId": null,
+			"selectedShapeIds": [
+				"shape:hcApHnbXP1oJcL9U-7rZb"
+			],
+			"hoveredShapeId": null,
+			"erasingShapeIds": [],
+			"hintingShapeIds": [],
+			"focusedGroupId": null,
+			"meta": {},
+			"id": "instance_page_state:page:page",
+			"pageId": "page:page",
+			"typeName": "instance_page_state"
+		},
+		{
+			"x": 1585.1524332426322,
+			"y": 1005.2625861428966,
+			"z": 0.3665641222512388,
+			"meta": {},
+			"id": "camera:page:page",
+			"typeName": "camera"
+		}
+	]
+}

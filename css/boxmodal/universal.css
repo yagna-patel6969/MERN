@@ -1,0 +1,17 @@
+/*univesal margin*/
+*{
+    padding: 0px;
+    margin: 0px;
+}
+#m{
+    background-color: beige;
+    border: solid;
+    border-color:blue;
+}
+#n{
+    background-color: brown;
+    border: solid;
+    border-radius: 15px;
+    border-color: black;
+    border-width: 10px;
+}
