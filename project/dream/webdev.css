@@ -1,0 +1,38 @@
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("EQ.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1290px;
+    opacity: 0.3;
+    /* very soft watermark */
+    pointer-events: none;
+    z-index: -1;
+    
+}
+ 
+     h1{
+        color: rgb(25, 25, 80);
+     }
+    .para1{
+        font-size: 24px;
+        color: rgb(14, 9, 9);
+     }
+
+     .head2{
+        font-size: 30px;
+        color: rgb(25, 25, 80) ;
+     }
+
+     .list1{
+        font-size: 24px;
+     }
+
+     .link1{
+        text-decoration: none;
+     }

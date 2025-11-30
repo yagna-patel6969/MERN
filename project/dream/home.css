@@ -1,0 +1,34 @@
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url("EQ.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 1290px;
+    opacity: 0.3;
+    
+    pointer-events: none;
+    z-index: -1;
+    
+}
+ .as{
+    font-size: 25px;
+ }
+ .asd{
+    font-size: 40px;
+    color: rgb(47, 47, 84);
+ }
+ .asdf{
+    font-size:25px;
+    font-family: cursive;
+ }
+ .q{
+    font-size: 50px;
+     }
+     .qw{
+        font-size: 24;
+     }

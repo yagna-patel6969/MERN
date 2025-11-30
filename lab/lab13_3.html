@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+	<h1 align="center">Application Form</h1>
+<form>
+	<fieldset>
+		<legend>Persnol Details</legend>
+		<table border="0">
+			<tr>
+				<td>
+					<label>Applicant's full Name</label>
+				</td>
+				<td>
+					<select></select>
+					<input type="text" placeholder="Enter Your Full Name">
+				</td>
+				<td></td>
+				<td></td>
+				<td><label>Care of</label></td>
+				<td>
+					<input type="radio" name="co">Parents
+					<input type="radio" name="co">Guardian
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label>Father's full Name</label>
+				</td>
+				<td>
+					<select></select>
+					<input type="text" placeholder="Enter Your Father's Name">
+				</td>
+				<td></td>
+				<td></td>
+				<td>
+					<label>Mother's full Name</label>
+				</td>
+				<td>
+					<select></select>
+					<input type="text" placeholder="Enter Your Mother's Name">
+				</td>
+			</tr>
+
+			<tr>
+				<td><label>Gender</label></td>
+				<td>
+					<input type="radio" name="gender">Male
+					<input type="radio" name="gender">Female
+					<input type="radio" name="gender">Other
+				</td>
+				<td></td>
+				<td></td>
+				<td><lable>DOB</lable></td>
+				<td>
+					<input type="date">
+				</td>
+			</tr>
+
+			<tr>
+				<td>
+					<label>EWS</label>
+				</td>
+				<td>
+					<input type="radio" name="ews">Yes
+					<input type="radio" name="ews">No
+				</td>
+				<td></td>
+				<td></td>
+				<td><label>Religion</label></td>
+				<td>
+					<select>
+						<option hidden>select</option>
+						<option>Hindu</option>
+						<option>Muslim</option>
+
+					</select>
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+	<fieldset>
+		<legend>Contact Details</legend>
+		<table>
+			<tr>
+				<td>
+					<label>Mobile Number</label>
+				</td>
+				<td>
+					<input type="text" pattern="{0-9}">
+				</td>
+			</tr>
+		</table>
+	</fieldset>
+</form>
+</body>
+</html>
