@@ -1,0 +1,50 @@
+body{
+    background-color: black;
+}
+
+#box{
+    background-color: blue;
+    border: 2px solid white;
+    border-radius: 5px;
+    height: 100px;
+    width: 100px;
+    position:absolute ;
+    animation-name: squar;
+    animation-duration: 10s;
+    animation-delay: 2s;
+    animation-iteration-count: infinite; /*time of repetation*/
+    animation-timing-function: linear;/*speed of animation*/
+}
+
+@keyframes squar {
+    0%{
+        top: 0;
+        left: 0;
+        background-color: blue;
+        
+    }
+    25%{
+        top: 0;
+        left: 80%;
+        background-color: aqua;
+        rotate: 360deg;
+    }
+    50%{
+        top: 50%;
+        left: 80%;
+        background-color: aquamarine;
+        rotate: 720deg;
+    }
+    75%{
+        top: 50%;
+        left: 0%;
+        background-color:lightgreen;
+        rotate: 1080deg;
+    }
+    100%{
+        top: 0%;
+        left: 0%;
+        background-color: green;
+        rotate: 1440deg;
+    }
+}

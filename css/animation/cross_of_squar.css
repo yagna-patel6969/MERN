@@ -1,0 +1,29 @@
+body{
+    background-color: black;
+}
+
+#box{
+    background-color: red;
+    border: 2px solid white;
+    border-radius: 10px;
+    height: 100px;
+    width: 100px;
+    position: absolute;
+    animation-name: squar;    /*Do note give relative bec. it not vertical direction*/
+    animation-duration: 5s;
+    animation-delay: 2s;
+    
+}
+
+@keyframes squar{
+    from{
+        left: 0;
+        top:0;
+    }
+    to{
+        left:80%;
+        top: 50%;
+        rotate: 360deg;
+        background-color: blue;
+    }
+}
