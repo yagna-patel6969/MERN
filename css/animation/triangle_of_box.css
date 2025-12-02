@@ -1,0 +1,43 @@
+body{
+    background-color: black;
+}
+
+#box{
+    background-color: blue;
+    height: 100px;
+    width: 100px;
+    border: 3px solid whitesmoke;
+    border-radius: 10px;
+    position: absolute;
+    animation-name: squar;
+    animation-duration: 5s;
+    animation-delay: 2s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    top: 0%;
+    left: 50%;
+}
+
+@keyframes squar {
+    0%{
+        top: 0;
+        left: 50%;
+        background-color: blue;
+    }
+    33.33%{
+        top: 50%;
+        left: 80%;
+        background-color: red;
+
+    }
+    66.66%{
+        top: 50%;
+        left: 20%;
+        background-color: blueviolet;
+    }
+        100%{
+        top: 0;
+        left: 50%;
+        background-color: blue;
+    }
+}

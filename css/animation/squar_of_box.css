@@ -4,8 +4,8 @@ body{
 
 #box{
     background-color: blue;
-    border: 2px solid white;
-    border-radius: 5px;
+    border: 3px solid white;
+    border-radius: 7px;
     height: 100px;
     width: 100px;
     position:absolute ;
