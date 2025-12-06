@@ -1,0 +1,25 @@
+body{
+    background-color: black;
+}
+
+.box{
+    background-color: aqua;
+    border: 2px solid red;
+    width: 100px;
+    height: 100px;
+    /* transition-property: all; */
+    /* transition-property:width;*/  
+    /*transition apply only on width ,height is changed but not bec. of transition */
+    transition-property: height;
+       /*transition apply only on height ,width is changed but not bec. of transition */
+    transition-duration: 5s;
+    transition-timing-function: linear;
+    /* transition-delay: 1s; */
+    
+}
+
+.box:hover{
+    width: 300px;
+    background-color: aquamarine;
+    height: 300px;
+}
