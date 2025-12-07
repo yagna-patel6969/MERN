@@ -1,0 +1,32 @@
+/* we have to use transition for showing tranform */
+
+.conteiner{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: antiquewhite;
+}
+
+.box{
+    background-color: rgb(255, 0, 0);
+    height: 100px;
+    width: 100px;
+    color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition-property: all; 
+    transition-delay: 1s;
+    transition-duration: 3s;
+    border: 3px solid black;
+}
+
+.box:hover{
+    
+    
+    /* transform: skew(45deg);*/
+    /*transform: rotate(360deg); */
+    transform: scale(2);
+}
