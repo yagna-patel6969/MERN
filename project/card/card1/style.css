@@ -1,0 +1,89 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+.conteiner{
+    height: 100vh;
+    width: 100vw;
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(9, 9, 121, 1) 35%, rgba(0, 212, 255, 1) 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card1{
+    height: 550px;
+    width: 350px;
+    background-color: aliceblue;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 20px;
+    overflow: hidden;
+    box-shadow: 10px 10px 10px 3px rgb(38, 38, 110);
+    transition: transform 0.25s ease;
+}
+
+.card1:hover{
+    transform: translateY(-8px);
+}
+
+.card1 img{
+    height:300px;
+    width:300px;
+    border-radius: 20px;
+    transition: transform 0.35s ease;
+}
+
+.card1 img:hover{
+    transform: scale(1.1);
+}
+
+.card1 h2{
+    font-size: 2rem;
+    font-weight: bold;
+}
+
+.card1 p{
+    font-size:1.3rem;
+}
+
+.card1 p,
+.card1 h2{
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+
+
+    .card1{
+        width: 100%;                
+        max-width: 360px;           
+        height: auto;               
+        padding: 16px;
+        gap: 16px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.3);  
+    }
+
+    .card1 img{
+        width: 100%;               
+        height: auto;               
+        margin-top: 0;              
+    }
+
+    .card1 h2{
+        font-size: 1.4rem;          
+    }
+
+    .card1 p{
+        font-size: 1rem;            
+    }
+}
