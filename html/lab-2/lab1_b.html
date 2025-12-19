@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form>
+        
+        <table>
+        <caption><h2>Student Registration</h2></caption>
+            <tr>
+                <td>
+                    <label>Student Name</label>
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Mobile Number</label>
+                </td>
+                <td>
+                    <input type="text" pattern="{0-9}[10]">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Student email</label>
+                </td>
+                <td>
+                    <input type="email">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Address</label>
+                </td>
+                <td>
+                    <textarea rows="5" cols="20"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Nationality </label>
+                </td>
+                <td>
+                    <select>
+                        <option hidden></option>
+                        <option>India</option>
+                        <option>UAE</option>
+                        <option>UK</option>
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <label>DOB</label>
+                </td>
+                <td>
+                    <input type="date">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Gender</label>
+                </td>
+                <td>
+                    Male<input type="radio" id="gender" name="gender">
+                    Female<input type="radio" id="gender"name="gender">
+                    other<input type="radio" id="gender"name="gender">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Higest Degree</label>
+                </td>
+                <td>
+                    <select>
+                        <option hidden></option>
+                        <option>MBA</option>
+                        <option>MCA</option>
+                        <option>Other</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label for="a">CPI</label>
+                </td>
+                <td>
+                    <input type="text" id="a">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>University</label>
+                </td>
+                <td>
+                    <select>
+                        <option hidden></option>
+                        <option>DU</option>
+                        <option>CU shah</option>
+                        <option>DAIICT</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Passing Year</label>
+                </td>
+                <td>
+                    <select>
+                        <option hidden></option>
+                        <option>2022</option>
+                        <option>2024</option>
+                        <option>2026</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <button>Submit</button>
+                    <button>Cencel</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</body>
+</html>

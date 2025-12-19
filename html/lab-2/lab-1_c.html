@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<form>
+		<table>
+
+			<caption><h3>COVID-19 Vaccine Registration Form</h3></caption>
+			<tr>
+				<td>
+                   <label>First Name</label>
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Last Name</label>
+                </td>
+                <td>
+                    <input type="text">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Aadhar Number</label>
+                </td>
+                <td>
+                    <input type="text" pattern="{0-9}[12]">
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Vaccine Name</label>
+                </td>
+                <td>
+                    <select>
+                        <option>Please select Vaccine Name</option>
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Vaccine Center Name</label>
+                </td>
+                <td>
+                    <select>
+                        <option>Please select Vaccine Center Name</option>
+                        <option>A</option>
+                        <option>B</option>
+                        <option>C</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <label>Date of Dose</label>
+                </td>
+                <td>
+                    <input type="date">
+                </td>
+            </tr>
+            
+            <tr>
+				<td>
+                   <label>Dose Number</label>
+                </td>
+                <td>
+                    <input type="text" pattern="{0-9}[1]">
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="center">
+                    <input type="submit" name="click here">
+                    <input type="reset">
+                </td>
+            </tr>
+		</table>
+	</form>
+</body>
+</html>
