@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/Yagna/OneDrive/Desktop/MERN/js/oprations",
-      "program": "c:/Users/Yagna/OneDrive/Desktop/MERN/js/oprations/build/Debug/outDebug",
+      "cwd": "c:/Users/Yagna/OneDrive/Desktop/MERN/js/operations",
+      "program": "c:/Users/Yagna/OneDrive/Desktop/MERN/js/operations/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
