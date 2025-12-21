@@ -50,7 +50,10 @@
 // ---------------------------------------
                         //memory
 // stack(primitive) and heap(non-primitive)
-
+//Stack → copy of value
+//Heap → copy of reference
+//Stack stores value, heap stores reference
+//Stack is faster than heap.
         //stack
 // let myName="Patel Yagna";
 // let yourName=myName ;
@@ -58,27 +61,43 @@
 // yourName="Yagna Patel";
 // console.log(yourName);
 // console.log(myName);
+//Changes do not affect original value.
+//Memory is allocated in a LIFO (Last In, First Out) manner.
+
+let a = 10;
+let b = a;
+
+b = 20;
+
+console.log(a); 
+console.log(b); 
+console.log(a);
+
+
 
         //Heap
-let person1={
-    email : "xyx@gmail.com",
-    upi : "xyz@ybl"
-}
+//Memory is allocated dynamically.(Dynamic memory = flexible size at runtime.)
+//Memory is given at runtime, not fixed in advance.
+//JavaScript decides how much memory is needed while the program is running.
+// let person1={
+//     email : "xyx@gmail.com",
+//     upi : "xyz@ybl"
+// }
 
-let person2=person1;
-console.log(person1);
-console.log(person2);
+// let person2=person1;
+// console.log(person1);
+// console.log(person2);
 
-person2={
-    email : "abc@gmail.com",
-    upi : "abc@ybl"
-}
-console.log(person2);
-console.log(person1);
+// person2={
+//     email : "abc@gmail.com",
+//     upi : "abc@ybl"
+// }
+// console.log(person2);
+// console.log(person1);
 
-person2.email = "abcd@gmail.com";
-console.log(person1);
-console.log(person2);
+// person2.email = "abcd@gmail.com";
+// console.log(person1);
+// console.log(person2);
 
 
 
