@@ -318,6 +318,18 @@ img {
     margin-top: 6px;
 }
 
+.skill-card a{
+    display: inline-block;
+    font-size: 0.92rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    border-bottom: 1px dashed transparent;
+}
+
+.skill-card a:hover{
+    color: var(--accent);
+    border-color: var(--accent);
+}
 /* ===== PROJECTS ===== */
 .projects {
     background: #020617;
