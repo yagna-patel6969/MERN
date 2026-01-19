@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Find Your Mentor - Student Registration | MentorMatch</title>
+    <link rel="stylesheet" href="student-details.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">MentorMatch</div>
+                <div class="nav-links">
+                    <a href="index.html">← Home</a>
+                    <a href="#">Domains</a>
+                    <a href="#">Support</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <section class="progress-section">
+        <div class="container">
+            <div class="progress-bar">
+                <div class="progress-step">
+                    <div class="progress-circle active">1</div>
+                    <div>Student Details</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <div class="progress-circle">2</div>
+                    <div>Mentor Matches</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <div class="progress-circle">3</div>
+                    <div>Book Session</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="form-hero">
+        <div class="container">
+            <h1 class="form-title">Create Your Profile</h1>
+            <p class="form-subtitle">
+                Help us find the perfect mentor by telling us about yourself. 
+                Takes 2 minutes.
+            </p>
+        </div>
+    </section>
+
+    <!-- Main Form -->
+    <div class="container">
+        <!-- Replace the ENTIRE form-card section (from <form id="studentForm"... to </form>) -->
+<form id="studentForm" class="form-card" onsubmit="handleSubmit(event)">
+    <div class="form-row">
+        <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" name="name" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+            <label>Gender *</label>
+            <select name="gender" required>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+                <option value="prefer-not">Prefer not to say</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Grade/Standard *</label>
+            <select name="grade" required>
+                <option value="">Select Grade</option>
+                <option>5th</option><option>6th</option><option>7th</option>
+                <option>8th</option><option>9th</option><option>10th</option>
+                <option>11th (Science)</option><option>11th (Commerce)</option>
+                <option>11th (Arts)</option><option>12th (Science)</option>
+                <option>12th (Commerce)</option><option>12th (Arts)</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Preferred Language *</label>
+            <select name="language" required>
+                <option value="">Choose Language</option>
+                <option>English</option>
+                <option>Hindi</option>
+                <option>Gujarati</option>
+                <option>Marathi</option>
+                <option>Hindi + English</option>
+                <option>Gujarati + English</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Age *</label>
+            <input type="number" name="age" min="10" max="25" placeholder="Your age" required>
+        </div>
+        <div class="form-group">
+            <label>Date of Birth *</label>
+            <input type="date" name="dob" required>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>State *</label>
+            <select name="state" required>
+                <option value="">Select State</option>
+                <option>Gujarat</option><option>Maharashtra</option><option>Rajasthan</option>
+                <option>Madhya Pradesh</option><option>Uttar Pradesh</option>
+                <option>Delhi</option><option>Karnataka</option>
+                <option>Tamil Nadu</option><option>Other</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label>Country *</label>
+            <select name="country" required>
+                <option value="">Select Country</option>
+                <option>India</option><option>USA</option>
+                <option>UK</option><option>Canada</option><option>Australia</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="form-row">
+        <div class="form-group">
+            <label>Mobile Number *</label>
+            <input type="tel" name="mobile" placeholder="+91 98765 43210" pattern="[+][0-9]{12,13}" required>
+        </div>
+        <div class="form-group">
+            <label>Email ID *</label>
+            <input type="email" name="email" placeholder="student@example.com" required>
+        </div>
+    </div>
+
+    <div class="submit-section">
+        <a href="mentor-detail.html"class="submit-btn">Find My Mentor → </a>>
+            
+        
+        <p style="margin-top: 1rem; color: #6b7280; font-size: 0.9rem;">
+            All fields marked * are required
+        </p>
+    </div>
+</form>
+
+    </div>
+
+    <script>
+        // Set today's date for DOB max
+        document.querySelector('[name="dob"]').max = new Date().toISOString().split('T')[0];
+        
+        function handleSubmit(event) {
+            event.preventDefault();
+            
+            // Validate form
+            const form = document.getElementById('studentForm');
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+            
+            // Basic validation
+            if (!data.name || !data.grade || !data.age || !data.dob || 
+                !data.state || !data.country || !data.mobile || !data.email) {
+                alert('Please fill all required fields');
+                return;
+            }
+            
+            // Validate email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(data.email)) {
+                alert('Please enter a valid email address');
+                return;
+            }
+            
+            // Validate mobile
+            const mobileRegex = /^\+91[6-9]\d{9}$/;
+            if (!mobileRegex.test(data.mobile.replace(/\s/g, ''))) {
+                alert('Please enter a valid Indian mobile number (starting with +91)');
+                return;
+            }
+            
+            // Success - redirect to next page (create mentor-results.html next)
+            alert('Profile created successfully! Redirecting to mentor matches...');
+            
+            // Store data for next page (you can create mentor-results.html)
+            localStorage.setItem('studentData', JSON.stringify(data));
+            
+            // For now, show success message
+            document.querySelector('.submit-section').innerHTML = `
+                <div style="text-align: center; padding: 2rem; background: #10b981; color: white; border-radius: 16px;">
+                    <h2 style="margin-bottom: 1rem;">✅ Profile Created Successfully!</h2>
+                    <p>We'll find the perfect mentors for you. Check your email for confirmation.</p>
+                    <button onclick="window.location.reload()" style="margin-top: 1rem; padding: 0.75rem 2rem; background: white; color: #10b981; border: none; border-radius: 50px; font-weight: 600; cursor: pointer;">Edit Profile</button>
+                </div>
+            `;
+        }
+    </script>
+</body>
+</html>

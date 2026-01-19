@@ -73,7 +73,7 @@
             transform: translateY(-2px);
         }
 
-        /* Hero */
+                                    /* Hero */
         .hero {
             padding: 120px 0;
             text-align: center;
@@ -120,7 +120,7 @@
             margin-top: 0.5rem;
         }
 
-        /* CTA Cards */
+                                     /* CTA Cards */
         .cta-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
@@ -186,7 +186,7 @@
             box-shadow: 0 10px 30px rgba(99, 102, 241, 0.4);
         }
 
-        /* Features Section */
+                                     /* Features Section */
         .features {
             padding: 100px 0;
             background: #f8fafc;

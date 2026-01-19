@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Mentor Matches - MentorMatch</title>
+    <link rel="stylesheet" href="mentor-detail.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">MentorMatch</div>
+                <div class="nav-links">
+                    <a href="find-mentor.html">← Edit Profile</a>
+                    <a href="index.html">Home</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <section class="progress-section">
+        <div class="container">
+            <div class="progress-bar">
+                <div class="progress-step">
+                    <div class="progress-circle completed">1</div>
+                    <div>Student Details</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <div class="progress-circle completed">2</div>
+                    <div>Mentor Matches</div>
+                </div>
+                <div class="progress-line"></div>
+                <div class="progress-step">
+                    <div class="progress-circle">3</div>
+                    <div>Book Session</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Results Hero -->
+    <section class="results-hero">
+        <div class="container">
+            <h1 class="results-title">Your Perfect Mentor Matches</h1>
+            <p style="font-size: 1.2rem; color: #6b7280;">
+                Handpicked based on your profile and preferences
+            </p>
+            
+            <div class="student-profile" id="studentProfile">
+                <div class="profile-details">
+                    <div class="profile-avatar">👨‍🎓</div>
+                    <div class="profile-info">
+                        <h3 id="profileName">Loading...</h3>
+                        <p id="profileDetails" style="color: #6b7280;"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mentors Grid -->
+    <div class="container">
+        <div class="mentors-grid">
+            <div class="mentor-card" onclick="showMentorDetail(1)">
+                <div class="mentor-header">
+                    <div class="mentor-avatar">👨‍🏫</div>
+                    <div>
+                        <div class="mentor-name">Prof. Raj Patel</div>
+                        <div class="mentor-education">M.Tech, IIT Bombay</div>
+                    </div>
+                </div>
+                <div class="mentor-detail">
+                    <span><strong>Experience:</strong></span>
+                    <span>12 Years</span>
+                </div>
+                <div class="mentor-detail">
+                    <span><strong>Rating:</strong></span>
+                    <span class="mentor-rating">⭐ 4.9 (127)</span>
+                </div>
+                <div class="mentor-detail">
+                    <span><strong>Charge:</strong></span>
+                    <span class="mentor-price">₹500/hr</span>
+                </div>
+                <div class="mentor-detail">
+                    <span><strong>Location:</strong></span>
+                    <span>Gujarat, India</span>
+                </div>
+                <a href="mailto:raj.patel@mentormatch.com" class="mentor-contact">📧 Contact Mentor</a>
+            </div>
+
+            <div class="mentor-card" onclick="showMentorDetail(2)">
+                <div class="mentor-header">
+                    <div class="mentor-avatar">👩‍🏫</div>
+                    <div>
+                        <div class="mentor-name">Dr. Priya Sharma</div>
+                        <div class="mentor-education">PhD English, DU</div>
+                    </div>
+                </div>
+                <div class="mentor-detail">
+                    <span><strong>Experience:</strong></span>
+                    <span>8 Years</span>
+                </div>
+                <div class="mentor-detail">
+                    <span><strong>Rating:</strong></span>
+                    <span class="mentor-rating">⭐ 4.8 (89)</span>
+                </div>
+                <div class="mentor-detail">
+                    <span><strong>Charge:</strong></span>
+                    <span class="mentor-price">₹450/hr</span>
+                </div>
+                <div class="mentor-detail">
+                    <span><strong>Location:</strong></span>
+                    <span>Maharashtra, India</span>
+                </div>
+                <a href="mailto:priya.sharma@mentormatch.com" class="mentor-contact">📧 Contact Mentor</a>
+            </div>
+
+            <div class="mentor-card" onclick="showMentorDetail(3)">
+                <div class="mentor-header">
+                    <div class="mentor-avatar">👨‍💻</div>
+                    <div>
+                        <div class="mentor-name">Amit Desai</div>
+                        <div class="mentor-education">B.Tech CSE, NIT Surat</div>
+                    </div>
+                </div>
+                <div class="mentor-detail">
+                    <span><strong>Experience:</strong></span>
+                    <span>5 Years</span>
+                </div>
+                <div class="mentor-detail">
+                    <span><strong>Rating:</strong></span>
+                    <span class="mentor-rating">⭐ 5.0 (45)</span>
+                </div>
+                <div class="mentor-detail">
+                    <span><strong>Charge:</strong></span>
+                    <span class="mentor-price">₹600/hr</span>
+                </div>
+                <div class="mentor-detail">
+                    <span><strong>Location:</strong></span>
+                    <span>Gujarat, India</span>
+                </div>
+                <a href="mailto:amit.desai@mentormatch.com" class="mentor-contact">📧 Contact Mentor</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Load student data on page load
+        window.onload = function() {
+            const studentData = JSON.parse(localStorage.getItem('studentData'));
+            if (studentData) {
+                document.getElementById('profileName').textContent = studentData.name;
+                document.getElementById('profileDetails').innerHTML = `
+                    Grade ${studentData.grade} | ${studentData.language} | ${studentData.state}, ${studentData.country}
+                `;
+            } else {
+                document.getElementById('studentProfile').innerHTML = `
+                    <p style="color: #ef4444; text-align: center;">
+                        No profile found. <a href="find-mentor.html">Create profile first →</a>
+                    </p>
+                `;
+            }
+        };
+
+        function showMentorDetail(id) {
+            const mentors = {
+                1: { name: 'Prof. Raj Patel', mobile: '+91 98765 43210', email: 'raj.patel@mentormatch.com' },
+                2: { name: 'Dr. Priya Sharma', mobile: '+91 98765 43211', email: 'priya.sharma@mentormatch.com' },
+                3: { name: 'Amit Desai', mobile: '+91 98765 43212', email: 'amit.desai@mentormatch.com' }
+            };
+            const mentor = mentors[id];
+            alert(`Contact ${mentor.name}:\n📱 ${mentor.mobile}\n📧 ${mentor.email}`);
+        }
+    </script>
+</body>
+</html>
