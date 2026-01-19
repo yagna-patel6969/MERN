@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Session - MentorMatch</title>
+    <link rel="stylesheet" href="contect-mentor.css">
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="logo">MentorMatch</div>
+                <div class="nav-links">
+                    <a href="mentor-results.html">← Back to Matches</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Progress Bar -->
+    <section class="progress-section">
+        <div class="container">
+            <div class="progress-bar">
+                <div class="progress-step"><div class="progress-circle completed">1</div><div>Profile</div></div>
+                <div class="progress-line"></div>
+                <div class="progress-step"><div class="progress-circle completed">2</div><div>Matches</div></div>
+                <div class="progress-line"></div>
+                <div class="progress-step"><div class="progress-circle active">3</div><div>Book</div></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- DYNAMIC Mentor Header -->
+    <section class="mentor-header">
+        <div class="container">
+            <div class="mentor-avatar" id="mentorAvatar">👨‍🏫</div>
+            <div class="mentor-name" id="mentorName">Loading...</div>
+            <div class="mentor-rating" id="mentorRating">-</div>
+            <div class="mentor-price" id="mentorPrice">₹0 /hr</div>
+        </div>
+    </section>
+
+    <!-- Booking Form -->
+    <div class="container">
+        <form id="bookingForm" class="booking-card" onsubmit="bookSession(event)">
+            <div class="booking-section">
+                <h3 class="section-title">📅 Select Date</h3>
+                <div class="form-group">
+                    <label>Select Session Date *</label>
+                    <input type="date" id="sessionDate" required>
+                </div>
+            </div>
+
+            <div class="booking-section">
+                <h3 class="section-title">🕒 Select Time Slot (1 Hour)</h3>
+                <div class="time-grid" id="timeSlots"></div>
+            </div>
+
+            <div class="booking-section">
+                <h3 class="section-title">📱 Call Preference</h3>
+                <div class="call-options">
+                    <div class="call-option" onclick="selectCallType('voice', this)">
+                        <div class="call-icon">📞</div>
+                        <div class="call-label">Voice Call</div>
+                        <div style="font-size: 0.85rem; color: #6b7280;">WhatsApp/Phone</div>
+                    </div>
+                    <div class="call-option" onclick="selectCallType('video', this)">
+                        <div class="call-icon">📹</div>
+                        <div class="call-label">Video Call</div>
+                        <div style="font-size: 0.85rem; color: #6b7280;">Zoom/Google Meet</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- NEW PAYMENT OPTIONS -->
+            <div class="payment-section">
+                <h3 class="section-title">💳 Payment Method</h3>
+                <div class="payment-methods">
+                    <div class="payment-option" onclick="selectPayment('razorpay', this)">
+                        <div class="payment-icon">💳</div>
+                        <div>Razorpay</div>
+                        <div style="font-size: 0.85rem; color: #6b7280;">Cards/UPI</div>
+                    </div>
+                    <div class="payment-option" onclick="selectPayment('paytm', this)">
+                        <div class="payment-icon">📱</div>
+                        <div>Paytm</div>
+                        <div style="font-size: 0.85rem; color: #6b7280;">Wallet/UPI</div>
+                    </div>
+                    <div class="payment-option" onclick="selectPayment('phonepe', this)">
+                        <div class="payment-icon">📲</div>
+                        <div>PhonePe</div>
+                        <div style="font-size: 0.85rem; color: #6b7280;">UPI/Cards</div>
+                    </div>
+                    <div class="payment-option" onclick="selectPayment('gpay', this)">
+                        <div class="payment-icon">👤</div>
+                        <div>Google Pay</div>
+                        <div style="font-size: 0.85rem; color: #6b7280;">UPI</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-summary">
+                <h4 style="margin-bottom: 1.5rem; color: #1e293b;">Session Summary</h4>
+                <div class="summary-row"><span>Date:</span><span id="summaryDate">-</span></div>
+                <div class="summary-row"><span>Time:</span><span id="summaryTime">-</span></div>
+                <div class="summary-row"><span>Call Type:</span><span id="summaryCallType">-</span></div>
+                <div class="summary-row"><span>Payment:</span><span id="summaryPayment">-</span></div>
+                <div class="summary-row"><span style="font-weight: 700;">Total:</span><div class="summary-total" id="summaryTotal">₹0</div></div>
+            </div>
+
+            <button type="submit" class="book-btn" id="bookButton" disabled>🔒 Complete Booking</button>
+        </form>
+    </div>
+
+    <script>
+        let selectedTime = '', selectedCallType = '', selectedPayment = '';
+        let currentMentor = {};
+
+        // ALL MENTORS DATA
+        const mentors = {
+            1: { name: 'Prof. Raj Patel', avatar: '👨‍🏫', rating: '⭐ 4.9 (127)', price: 500, slots: ['4:00 PM','5:00 PM','6:00 PM','7:00 PM','8:00 PM','9:00 PM'] },
+            2: { name: 'Dr. Priya Sharma', avatar: '👩‍🏫', rating: '⭐ 4.8 (89)', price: 450, slots: ['3:00 PM','4:00 PM','5:00 PM','6:00 PM','7:00 PM','8:00 PM'] },
+            3: { name: 'Amit Desai', avatar: '👨‍💻', rating: '⭐ 5.0 (45)', price: 600, slots: ['5:00 PM','6:00 PM','7:00 PM','8:00 PM','9:00 PM','10:00 PM'] }
+        };
+
+        // Load mentor from URL parameter
+        window.onload = function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const mentorId = urlParams.get('mentor') || 1;
+            currentMentor = mentors[mentorId];
+            
+            // Set mentor details
+            document.getElementById('mentorAvatar').textContent = currentMentor.avatar;
+            document.getElementById('mentorName').textContent = currentMentor.name;
+            document.getElementById('mentorRating').textContent = currentMentor.rating;
+            document.getElementById('mentorPrice').textContent = `₹${currentMentor.price} / 1 hour`;
+            
+            generateTimeSlots();
+            setMinDate();
+        };
+
+        function setMinDate() {
+            const today = new Date();
+            today.setDate(today.getDate() + 1);
+            document.getElementById('sessionDate').min = today.toISOString().split('T')[0];
+        }
+
+        function generateTimeSlots() {
+            const timeGrid = document.getElementById('timeSlots');
+            timeGrid.innerHTML = '';
+            currentMentor.slots.forEach(time => {
+                const slot = document.createElement('div');
+                slot.className = 'time-slot available';
+                slot.textContent = time;
+                slot.onclick = () => selectTimeSlot(time, slot);
+                timeGrid.appendChild(slot);
+            });
+        }
+
+        function selectTimeSlot(time, slot) {
+            document.querySelectorAll('.time-slot').forEach(s => s.classList.remove('selected'));
+            slot.classList.add('selected');
+            selectedTime = time;
+            updateSummary();
+        }
+
+        function selectCallType(type, element) {
+            selectedCallType = type;
+            document.querySelectorAll('.call-option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            updateSummary();
+        }
+
+        function selectPayment(method, element) {
+            selectedPayment = method;
+            document.querySelectorAll('.payment-option').forEach(opt => opt.classList.remove('selected'));
+            element.classList.add('selected');
+            updateSummary();
+        }
+
+        function updateSummary() {
+            const date = document.getElementById('sessionDate').value;
+            document.getElementById('summaryDate').textContent = date ? new Date(date).toLocaleDateString() : '-';
+            document.getElementById('summaryTime').textContent = selectedTime || '-';
+            document.getElementById('summaryCallType').textContent = selectedCallType === 'voice' ? 'Voice Call' : selectedCallType === 'video' ? 'Video Call' : '-';
+            document.getElementById('summaryPayment').textContent = selectedPayment ? selectedPayment.charAt(0).toUpperCase() + selectedPayment.slice(1) : '-';
+            document.getElementById('summaryTotal').textContent = `₹${currentMentor.price}`;
+
+            const bookBtn = document.getElementById('bookButton');
+            if (date && selectedTime && selectedCallType && selectedPayment) {
+                bookBtn.disabled = false;
+                bookBtn.textContent = `✅ Pay ₹${currentMentor.price} & Book`;
+            } else {
+                bookBtn.disabled = true;
+                bookBtn.textContent = '🔒 Select All Options';
+            }
+        }
+
+        document.getElementById('sessionDate').addEventListener('change', updateSummary);
+
+        function bookSession(event) {
+            event.preventDefault();
+            alert(`
+✅ SESSION BOOKED SUCCESSFULLY!
+
+👨‍🏫 ${currentMentor.name}
+📅 ${new Date(document.getElementById('sessionDate').value).toLocaleDateString()}
+🕒 ${selectedTime}
+📱 ${selectedCallType.toUpperCase()} Call
+💳 ${selectedPayment}
+💰 PAID: ₹${currentMentor.price}
+
+📧 Confirmation email sent!
+📱 WhatsApp reminder 1hr before
+            `);
+            window.location.href = 'mentor-results.html';
+        }
+    </script>
+</body>
+</html>
