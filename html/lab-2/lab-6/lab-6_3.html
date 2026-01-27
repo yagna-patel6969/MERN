@@ -1,0 +1,42 @@
+<!-- Create a webpage that shows the use of:
+a.multiple selection.
+b.Adjacent Sibling Selector (h2 + p)
+c.Attribute Selector (input[type="text"]) to target specific elements and apply CSS rules. -->
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lab-6.3</title>
+	<style>
+		.a{
+			background-color: hotpink;
+		}
+		.b{
+			color:white ;
+		}
+		p+h2{
+			background-color: red;
+		}
+		input[type="text"]{
+			background-color: purple;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<p class="a b">
+			Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+		</p>
+		<h2>
+			Error
+		</h2>
+		<form>
+			<label id="name">
+				name:
+			</label>
+			<input type="text">
+		</form>
+	</div>
+</body>
+</html>
