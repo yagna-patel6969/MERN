@@ -1,0 +1,1101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineVerse - Premium Movie Booking</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg-pattern"></div>
+    <div class="container">
+        
+        <!-- LOGIN PAGE -->
+        <div id="loginPage" class="login-page">
+            <div class="login-box">
+                <div class="logo">CINEVERSE</div>
+                <div class="tagline">PREMIUM CINEMA EXPERIENCE</div>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password</label>
+                        <input type="password" id="password" placeholder="Enter your password" required>
+                    </div>
+                    <button type="submit" class="btn-primary">Sign In</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- HOME PAGE -->
+        <div id="homePage" class="hidden">
+            <nav class="navbar">
+                <div class="nav-content">
+                    <div class="nav-logo" onclick="showHome()">CINEVERSE</div>
+                    <div class="nav-links">
+                        <a href="#" onclick="showHome()">Home</a>
+                        <a href="#" onclick="showMyBookings()">My Bookings</a>
+                        <a href="#">Offers</a>
+                        <div class="user-profile" onclick="toggleProfileDropdown(event)">
+                            <div class="user-avatar" id="userAvatar">U</div>
+                            <span id="userName">User</span>
+                            <div class="profile-dropdown" id="profileDropdown">
+                                <div class="profile-info">
+                                    <div class="profile-name" id="profileName">User</div>
+                                    <div class="profile-email" id="profileEmail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5c292f392e1c39313d3530723f3331">[email&#160;protected]</a></div>
+                                </div>
+                                <ul class="profile-menu">
+                                    <li onclick="showMyBookings()">📋 My Bookings</li>
+                                    <li>⚙️ Settings</li>
+                                    <li>💳 Payment Methods</li>
+                                    <li class="logout-btn" onclick="logout()">🚪 Logout</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="home-page">
+                <div class="hero-section">
+                    <div class="hero-content">
+                        <h1 class="hero-title" id="heroTitle"></h1>
+                        <p class="hero-subtitle" id="heroSubtitle"></p>
+                        <div class="hero-cta">
+                            <button class="cta-button" onclick="document.querySelector('.category-section').scrollIntoView({behavior: 'smooth'})">Explore Now</button>
+                            <button class="cta-button secondary" onclick="showShows('Movies')">Browse Movies</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="category-section">
+                    <div class="section-header">
+                        <h2 class="section-title">Choose Your Entertainment</h2>
+                        <p class="section-subtitle">From blockbusters to live performances</p>
+                    </div>
+                    <div class="category-grid">
+                        <div class="category-card" onclick="showShows('Movies')">
+                            <div class="category-icon">🎬</div>
+                            <h3 class="category-name">Movies</h3>
+                            <p class="category-desc">Latest blockbusters and timeless classics in premium quality</p>
+                        </div>
+                        <div class="category-card" onclick="showShows('Stand-up Comedy')">
+                            <div class="category-icon">🎤</div>
+                            <h3 class="category-name">Stand-up Comedy</h3>
+                            <p class="category-desc">Laugh out loud with the best comedians in town</p>
+                        </div>
+                        <div class="category-card" onclick="showShows('Theater')">
+                            <div class="category-icon">🎭</div>
+                            <h3 class="category-name">Theater</h3>
+                            <p class="category-desc">Live performances and theatrical masterpieces</p>
+                        </div>
+                        <div class="category-card" onclick="showShows('Concerts')">
+                            <div class="category-icon">🎵</div>
+                            <h3 class="category-name">Concerts</h3>
+                            <p class="category-desc">Live music events from top artists worldwide</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="features-section">
+                    <div class="features-container">
+                        <div class="section-header">
+                            <h2 class="section-title">Why Choose CineVerse?</h2>
+                            <p class="section-subtitle">Premium booking experience at your fingertips</p>
+                        </div>
+                        <div class="features-grid">
+                            <div class="feature-card">
+                                <div class="feature-icon">⚡</div>
+                                <h3 class="feature-title">Instant Booking</h3>
+                                <p class="feature-desc">Book your tickets in seconds with our lightning-fast booking system</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">💺</div>
+                                <h3 class="feature-title">Best Seats</h3>
+                                <p class="feature-desc">Choose from premium platinum, gold, and silver seating options</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">🎟️</div>
+                                <h3 class="feature-title">Easy Cancellation</h3>
+                                <p class="feature-desc">Cancel or reschedule your bookings hassle-free</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">🔒</div>
+                                <h3 class="feature-title">Secure Payment</h3>
+                                <p class="feature-desc">Multiple payment options with bank-grade security</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">🎁</div>
+                                <h3 class="feature-title">Exclusive Offers</h3>
+                                <p class="feature-desc">Get access to special discounts and early bird offers</p>
+                            </div>
+                            <div class="feature-card">
+                                <div class="feature-icon">📱</div>
+                                <h3 class="feature-title">Mobile Friendly</h3>
+                                <p class="feature-desc">Book tickets anytime, anywhere from any device</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <footer class="footer">
+                    <div class="footer-container">
+                        <div class="footer-content">
+                            <div class="footer-brand">
+                                <div class="footer-logo">CINEVERSE</div>
+                                <p class="footer-tagline">Your premium destination for movies, shows, and live entertainment. Experience the magic of cinema with state-of-the-art facilities and world-class service.</p>
+                                <div class="social-links">
+                                    <a href="#" class="social-link">📘</a>
+                                    <a href="#" class="social-link">🐦</a>
+                                    <a href="#" class="social-link">📷</a>
+                                    <a href="#" class="social-link">▶️</a>
+                                </div>
+                            </div>
+                            <div class="footer-column">
+                                <h4>Quick Links</h4>
+                                <ul class="footer-links">
+                                    <li><a href="#" onclick="showHome()">Home</a></li>
+                                    <li><a href="#" onclick="showShows('Movies')">Movies</a></li>
+                                    <li><a href="#">Events</a></li>
+                                    <li><a href="#">Offers</a></li>
+                                    <li><a href="#">Gift Cards</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-column">
+                                <h4>Support</h4>
+                                <ul class="footer-links">
+                                    <li><a href="#">Help Center</a></li>
+                                    <li><a href="#">My Bookings</a></li>
+                                    <li><a href="#">FAQs</a></li>
+                                    <li><a href="#">Contact Us</a></li>
+                                    <li><a href="#">Feedback</a></li>
+                                </ul>
+                            </div>
+                            <div class="footer-column">
+                                <h4>Company</h4>
+                                <ul class="footer-links">
+                                    <li><a href="#">About Us</a></li>
+                                    <li><a href="#">Careers</a></li>
+                                    <li><a href="#">Partner With Us</a></li>
+                                    <li><a href="#">Press</a></li>
+                                    <li><a href="#">Blog</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="footer-bottom">
+                            <div>© 2026 CineVerse. All rights reserved.</div>
+                            <div class="footer-bottom-links">
+                                <a href="#">Privacy Policy</a>
+                                <a href="#">Terms of Service</a>
+                                <a href="#">Cookie Policy</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+
+        <!-- SHOWS LIST PAGE -->
+        <div id="showsPage" class="hidden">
+            <nav class="navbar">
+                <div class="nav-content">
+                    <div class="nav-logo" onclick="showHome()">CINEVERSE</div>
+                    <div class="nav-links">
+                        <a href="#" onclick="showHome()">Home</a>
+                        <a href="#" onclick="showMyBookings()">My Bookings</a>
+                        <a href="#">Offers</a>
+                        <div class="user-profile" onclick="toggleProfileDropdown(event)">
+                            <div class="user-avatar" id="userAvatar2">U</div>
+                            <span id="userName2">User</span>
+                            <div class="profile-dropdown" id="profileDropdown2">
+                                <div class="profile-info">
+                                    <div class="profile-name" id="profileName2">User</div>
+                                    <div class="profile-email" id="profileEmail2"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="027771677042676f636b6e2c616d6f">[email&#160;protected]</a></div>
+                                </div>
+                                <ul class="profile-menu">
+                                    <li onclick="showMyBookings()">📋 My Bookings</li>
+                                    <li>⚙️ Settings</li>
+                                    <li>💳 Payment Methods</li>
+                                    <li class="logout-btn" onclick="logout()">🚪 Logout</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="shows-page">
+                <div class="page-header">
+                    <h1 class="page-title" id="categoryTitle">Movies</h1>
+                    <div class="breadcrumb">
+                        <span onclick="showHome()" style="cursor: pointer; color: var(--accent-gold);">Home</span>
+                        <span>/</span>
+                        <span id="categoryBreadcrumb">Movies</span>
+                    </div>
+                </div>
+
+                <div id="showsGrid" class="shows-grid">
+                    <!-- Shows will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- THEATERS PAGE -->
+        <div id="theatersPage" class="hidden">
+            <nav class="navbar">
+                <div class="nav-content">
+                    <div class="nav-logo" onclick="showHome()">CINEVERSE</div>
+                    <div class="nav-links">
+                        <a href="#" onclick="showHome()">Home</a>
+                        <a href="#" onclick="showMyBookings()">My Bookings</a>
+                        <a href="#">Offers</a>
+                        <div class="user-profile" onclick="toggleProfileDropdown(event)">
+                            <div class="user-avatar" id="userAvatar3">U</div>
+                            <span id="userName3">User</span>
+                            <div class="profile-dropdown" id="profileDropdown3">
+                                <div class="profile-info">
+                                    <div class="profile-name" id="profileName3">User</div>
+                                    <div class="profile-email" id="profileEmail3"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8afff9eff8caefe7ebe3e6a4e9e5e7">[email&#160;protected]</a></div>
+                                </div>
+                                <ul class="profile-menu">
+                                    <li onclick="showMyBookings()">📋 My Bookings</li>
+                                    <li>⚙️ Settings</li>
+                                    <li>💳 Payment Methods</li>
+                                    <li class="logout-btn" onclick="logout()">🚪 Logout</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="theaters-page">
+                <div class="page-header">
+                    <h1 class="page-title">Select Theater & Showtime</h1>
+                    <div class="breadcrumb">
+                        <span onclick="showHome()" style="cursor: pointer; color: var(--accent-gold);">Home</span>
+                        <span>/</span>
+                        <span onclick="goBack()" style="cursor: pointer; color: var(--accent-gold);" id="theaterCategoryBreadcrumb">Movies</span>
+                        <span>/</span>
+                        <span id="theaterShowBreadcrumb">Select Show</span>
+                    </div>
+                </div>
+
+                <div class="selected-movie" id="selectedMovieInfo">
+                    <!-- Selected movie info will be populated by JavaScript -->
+                </div>
+
+                <div id="theatersList" class="theater-list">
+                    <!-- Theaters will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- SEATING PAGE -->
+        <div id="seatingPage" class="hidden">
+            <nav class="navbar">
+                <div class="nav-content">
+                    <div class="nav-logo" onclick="showHome()">CINEVERSE</div>
+                    <div class="nav-links">
+                        <a href="#" onclick="showHome()">Home</a>
+                        <a href="#" onclick="showMyBookings()">My Bookings</a>
+                        <a href="#">Offers</a>
+                        <div class="user-profile" onclick="toggleProfileDropdown(event)">
+                            <div class="user-avatar" id="userAvatar4">U</div>
+                            <span id="userName4">User</span>
+                            <div class="profile-dropdown" id="profileDropdown4">
+                                <div class="profile-info">
+                                    <div class="profile-name" id="profileName4">User</div>
+                                    <div class="profile-email" id="profileEmail4"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4e3b3d2b3c0e2b232f2722602d2123">[email&#160;protected]</a></div>
+                                </div>
+                                <ul class="profile-menu">
+                                    <li onclick="showMyBookings()">📋 My Bookings</li>
+                                    <li>⚙️ Settings</li>
+                                    <li>💳 Payment Methods</li>
+                                    <li class="logout-btn" onclick="logout()">🚪 Logout</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="seating-page">
+                <div class="page-header">
+                    <h1 class="page-title">Select Your Seats</h1>
+                    <div class="breadcrumb">
+                        <span onclick="showHome()" style="cursor: pointer; color: var(--accent-gold);">Home</span>
+                        <span>/</span>
+                        <span id="seatingShowBreadcrumb">Movie</span>
+                        <span>/</span>
+                        <span id="seatingTheaterBreadcrumb">Theater</span>
+                    </div>
+                </div>
+
+                <div class="screen-section">
+                    <div class="screen"></div>
+                    <div class="screen-label">Screen This Way</div>
+                </div>
+
+                <div class="seating-area" id="seatingArea">
+                    <!-- Seating will be populated by JavaScript -->
+                </div>
+
+                <div class="legend">
+                    <div class="legend-item">
+                        <div class="legend-seat legend-available"></div>
+                        <span>Available</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-seat legend-selected"></div>
+                        <span>Selected</span>
+                    </div>
+                    <div class="legend-item">
+                        <div class="legend-seat legend-booked"></div>
+                        <span>Booked</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="booking-summary">
+                <div class="summary-content">
+                    <div class="summary-details">
+                        <div class="summary-item">
+                            <div class="summary-label">Selected Seats</div>
+                            <div class="summary-value" id="selectedSeatsCount">0</div>
+                            <div class="selected-seats-list" id="selectedSeatsList"></div>
+                        </div>
+                        <div class="summary-item">
+                            <div class="summary-label">Total Amount</div>
+                            <div class="summary-value" id="totalAmount">₹0</div>
+                        </div>
+                    </div>
+                    <button class="btn-book" id="proceedToPayment" onclick="showPayment()" disabled>Proceed to Payment</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- PAYMENT PAGE -->
+        <div id="paymentPage" class="hidden">
+            <nav class="navbar">
+                <div class="nav-content">
+                    <div class="nav-logo" onclick="showHome()">CINEVERSE</div>
+                    <div class="nav-links">
+                        <a href="#" onclick="showHome()">Home</a>
+                        <a href="#" onclick="showMyBookings()">My Bookings</a>
+                        <a href="#">Offers</a>
+                        <div class="user-profile" onclick="toggleProfileDropdown(event)">
+                            <div class="user-avatar" id="userAvatar5">U</div>
+                            <span id="userName5">User</span>
+                            <div class="profile-dropdown" id="profileDropdown5">
+                                <div class="profile-info">
+                                    <div class="profile-name" id="profileName5">User</div>
+                                    <div class="profile-email" id="profileEmail5"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="4530362037052028242c296b262a28">[email&#160;protected]</a></div>
+                                </div>
+                                <ul class="profile-menu">
+                                    <li onclick="showMyBookings()">📋 My Bookings</li>
+                                    <li>⚙️ Settings</li>
+                                    <li>💳 Payment Methods</li>
+                                    <li class="logout-btn" onclick="logout()">🚪 Logout</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="payment-page">
+                <div class="page-header text-center mb-20">
+                    <h1 class="page-title">Payment</h1>
+                </div>
+
+                <div class="payment-summary">
+                    <h3 style="margin-bottom: 20px; font-size: 24px;">Booking Summary</h3>
+                    <div class="summary-row">
+                        <span>Show</span>
+                        <span id="paymentShowName">Movie Name</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Theater</span>
+                        <span id="paymentTheaterName">Theater Name</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Time</span>
+                        <span id="paymentShowTime">7:00 PM</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Seats</span>
+                        <span id="paymentSeats">A1, A2, A3</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Total Amount</span>
+                        <span id="paymentTotalAmount">₹0</span>
+                    </div>
+                </div>
+
+                <div class="payment-methods">
+                    <h3 style="margin-bottom: 20px; font-size: 24px;">Select Payment Method</h3>
+                    <div class="payment-method" onclick="selectPaymentMethod(this, 'card')">
+                        <div class="payment-icon">💳</div>
+                        <div>
+                            <div style="font-weight: 600; margin-bottom: 5px;">Credit / Debit Card</div>
+                            <div style="font-size: 14px; color: var(--text-secondary);">Visa, Mastercard, Rupay</div>
+                        </div>
+                    </div>
+                    <div class="payment-method" onclick="selectPaymentMethod(this, 'upi')">
+                        <div class="payment-icon">📱</div>
+                        <div>
+                            <div style="font-weight: 600; margin-bottom: 5px;">UPI</div>
+                            <div style="font-size: 14px; color: var(--text-secondary);">Google Pay, PhonePe, Paytm</div>
+                        </div>
+                    </div>
+                    <div class="payment-method" onclick="selectPaymentMethod(this, 'wallet')">
+                        <div class="payment-icon">👛</div>
+                        <div>
+                            <div style="font-weight: 600; margin-bottom: 5px;">Wallets</div>
+                            <div style="font-size: 14px; color: var(--text-secondary);">Paytm, Amazon Pay, PhonePe</div>
+                        </div>
+                    </div>
+                    <div class="payment-method" onclick="selectPaymentMethod(this, 'netbanking')">
+                        <div class="payment-icon">🏦</div>
+                        <div>
+                            <div style="font-weight: 600; margin-bottom: 5px;">Net Banking</div>
+                            <div style="font-size: 14px; color: var(--text-secondary);">All major banks</div>
+                        </div>
+                    </div>
+                </div>
+
+                <button class="btn-primary" id="confirmPaymentBtn" onclick="confirmPayment()" disabled>Confirm Payment</button>
+            </div>
+        </div>
+
+        <!-- SUCCESS PAGE -->
+        <div id="successPage" class="hidden">
+            <nav class="navbar">
+                <div class="nav-content">
+                    <div class="nav-logo" onclick="showHome()">CINEVERSE</div>
+                    <div class="nav-links">
+                        <a href="#" onclick="showHome()">Home</a>
+                        <a href="#" onclick="showMyBookings()">My Bookings</a>
+                        <a href="#">Offers</a>
+                        <div class="user-profile" onclick="toggleProfileDropdown(event)">
+                            <div class="user-avatar" id="userAvatar6">U</div>
+                            <span id="userName6">User</span>
+                            <div class="profile-dropdown" id="profileDropdown6">
+                                <div class="profile-info">
+                                    <div class="profile-name" id="profileName6">User</div>
+                                    <div class="profile-email" id="profileEmail6"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a5d0d6c0d7e5c0c8c4ccc98bc6cac8">[email&#160;protected]</a></div>
+                                </div>
+                                <ul class="profile-menu">
+                                    <li onclick="showMyBookings()">📋 My Bookings</li>
+                                    <li>⚙️ Settings</li>
+                                    <li>💳 Payment Methods</li>
+                                    <li class="logout-btn" onclick="logout()">🚪 Logout</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="payment-page">
+                <div class="success-animation">
+                    <div class="success-icon">✅</div>
+                    <h2 class="success-message">Booking Confirmed!</h2>
+                    <p class="success-details">Your tickets have been booked successfully</p>
+                    <div class="booking-id">Booking ID: <span id="bookingId">CINE123456</span></div>
+                    <button class="btn-primary" onclick="showHome()">Back to Home</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- MY BOOKINGS PAGE -->
+        <div id="myBookingsPage" class="hidden">
+            <nav class="navbar">
+                <div class="nav-content">
+                    <div class="nav-logo" onclick="showHome()">CINEVERSE</div>
+                    <div class="nav-links">
+                        <a href="#" onclick="showHome()">Home</a>
+                        <a href="#" onclick="showMyBookings()">My Bookings</a>
+                        <a href="#">Offers</a>
+                        <div class="user-profile" onclick="toggleProfileDropdown(event)">
+                            <div class="user-avatar" id="userAvatar7">U</div>
+                            <span id="userName7">User</span>
+                            <div class="profile-dropdown" id="profileDropdown7">
+                                <div class="profile-info">
+                                    <div class="profile-name" id="profileName7">User</div>
+                                    <div class="profile-email" id="profileEmail7"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="5e2b2d3b2c1e3b333f3732703d3133">[email&#160;protected]</a></div>
+                                </div>
+                                <ul class="profile-menu">
+                                    <li onclick="showMyBookings()">📋 My Bookings</li>
+                                    <li>⚙️ Settings</li>
+                                    <li>💳 Payment Methods</li>
+                                    <li class="logout-btn" onclick="logout()">🚪 Logout</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+            <div class="bookings-page">
+                <div class="page-header">
+                    <h1 class="page-title">My Bookings</h1>
+                    <div class="breadcrumb">
+                        <span onclick="showHome()" style="cursor: pointer; color: var(--accent-gold);">Home</span>
+                        <span>/</span>
+                        <span>My Bookings</span>
+                    </div>
+                </div>
+
+                <div id="bookingsContainer" class="bookings-container">
+                    <!-- Bookings will be populated by JavaScript -->
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Global state
+        let currentUser = null;
+        let selectedCategory = '';
+        let selectedShow = null;
+        let selectedTheater = null;
+        let selectedTime = '';
+        let selectedSeats = [];
+        let selectedPaymentMethod = '';
+        let userBookings = [];
+
+        // Animate text letter by letter
+        function animateText(elementId, text, animationDelay = 50) {
+            const element = document.getElementById(elementId);
+            if (!element) {
+                console.error('Element not found:', elementId);
+                return;
+            }
+            
+            console.log('Animating:', elementId, 'with text:', text);
+            element.innerHTML = '';
+            
+            // Split text into words and letters, preserving spaces
+            const words = text.split(' ');
+            let totalDelay = 0;
+            
+            words.forEach((word, wordIndex) => {
+                const letters = word.split('');
+                letters.forEach((letter, letterIndex) => {
+                    const span = document.createElement('span');
+                    span.textContent = letter;
+                    span.style.animationDelay = `${totalDelay}ms`;
+                    element.appendChild(span);
+                    totalDelay += animationDelay;
+                });
+                
+                // Add space after each word except the last one
+                if (wordIndex < words.length - 1) {
+                    const space = document.createElement('span');
+                    space.innerHTML = '&nbsp;';
+                    space.style.animationDelay = `${totalDelay}ms`;
+                    element.appendChild(space);
+                    totalDelay += animationDelay;
+                }
+            });
+        }
+
+        // Initialize hero animations when page loads
+        window.addEventListener('load', function() {
+            if (!document.getElementById('loginPage').classList.contains('hidden')) {
+                return; // Don't animate if still on login page
+            }
+            animateText('heroTitle', 'EXPERIENCE CINEMA', 80);
+            setTimeout(() => {
+                animateText('heroSubtitle', 'Your Gateway to Entertainment Excellence', 30);
+            }, 800);
+        });
+
+        // Sample data
+        const showsData = {
+            'Movies': [
+                { id: 1, name: 'Inception', emoji: '🌀', rating: '8.8', genre: 'Sci-Fi', duration: '2h 28m' },
+                { id: 2, name: 'The Dark Knight', emoji: '🦇', rating: '9.0', genre: 'Action', duration: '2h 32m' },
+                { id: 3, name: 'Interstellar', emoji: '🚀', rating: '8.6', genre: 'Sci-Fi', duration: '2h 49m' },
+                { id: 4, name: 'Pulp Fiction', emoji: '🔫', rating: '8.9', genre: 'Crime', duration: '2h 34m' },
+                { id: 5, name: 'The Matrix', emoji: '💊', rating: '8.7', genre: 'Sci-Fi', duration: '2h 16m' },
+                { id: 6, name: 'Parasite', emoji: '🏠', rating: '8.6', genre: 'Thriller', duration: '2h 12m' }
+            ],
+            'Stand-up Comedy': [
+                { id: 7, name: 'Comedy Night Live', emoji: '😂', rating: '8.5', genre: 'Comedy', duration: '1h 30m' },
+                { id: 8, name: 'Laugh Factory', emoji: '🎪', rating: '8.2', genre: 'Comedy', duration: '1h 45m' },
+                { id: 9, name: 'Comic Relief', emoji: '🤣', rating: '8.4', genre: 'Comedy', duration: '2h 00m' }
+            ],
+            'Theater': [
+                { id: 10, name: 'Hamlet', emoji: '👑', rating: '9.1', genre: 'Drama', duration: '3h 00m' },
+                { id: 11, name: 'Romeo & Juliet', emoji: '💕', rating: '8.8', genre: 'Romance', duration: '2h 30m' },
+                { id: 12, name: 'Macbeth', emoji: '⚔️', rating: '8.9', genre: 'Tragedy', duration: '2h 45m' }
+            ],
+            'Concerts': [
+                { id: 13, name: 'Rock Legends', emoji: '🎸', rating: '9.0', genre: 'Rock', duration: '2h 30m' },
+                { id: 14, name: 'Jazz Night', emoji: '🎺', rating: '8.7', genre: 'Jazz', duration: '2h 00m' },
+                { id: 15, name: 'Pop Sensation', emoji: '🎤', rating: '8.9', genre: 'Pop', duration: '2h 15m' }
+            ]
+        };
+
+        const theatersData = [
+            {
+                id: 1,
+                name: 'PVR Cinemas',
+                location: 'Phoenix Mall, Downtown',
+                hallTypes: ['IMAX', 'Dolby Atmos', 'Premium'],
+                times: ['10:00 AM', '1:30 PM', '4:45 PM', '7:00 PM', '10:15 PM']
+            },
+            {
+                id: 2,
+                name: 'INOX Megaplex',
+                location: 'Central Plaza, City Center',
+                hallTypes: ['4DX', 'Premium', 'Standard'],
+                times: ['11:00 AM', '2:00 PM', '5:30 PM', '8:45 PM']
+            },
+            {
+                id: 3,
+                name: 'Cinepolis Luxury',
+                location: 'Westside Mall, Suburban',
+                hallTypes: ['Premium', 'VIP Lounge'],
+                times: ['12:30 PM', '3:45 PM', '6:30 PM', '9:30 PM']
+            }
+        ];
+
+        const seatCategories = [
+            { name: 'Silver', price: 150, rows: ['A', 'B', 'C', 'D'], seatsPerRow: 16 },
+            { name: 'Gold', price: 250, rows: ['E', 'F', 'G', 'H'], seatsPerRow: 14 },
+            { name: 'Platinum', price: 400, rows: ['I', 'J', 'K'], seatsPerRow: 12 }
+        ];
+
+        // Login
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const email = document.getElementById('email').value;
+            currentUser = {
+                name: email.split('@')[0],
+                email: email
+            };
+            
+            // Initialize sample bookings for demo
+            userBookings = [
+                {
+                    id: 'CINE' + Math.random().toString(36).substr(2, 9).toUpperCase(),
+                    show: { name: 'Inception', emoji: '🌀', genre: 'Sci-Fi' },
+                    theater: 'PVR Cinemas - Phoenix Mall',
+                    date: '2026-01-15',
+                    time: '7:00 PM',
+                    seats: ['E5', 'E6', 'E7'],
+                    category: 'Gold',
+                    totalAmount: 750,
+                    status: 'completed'
+                },
+                {
+                    id: 'CINE' + Math.random().toString(36).substr(2, 9).toUpperCase(),
+                    show: { name: 'The Dark Knight', emoji: '🦇', genre: 'Action' },
+                    theater: 'INOX Megaplex - Central Plaza',
+                    date: '2026-01-22',
+                    time: '8:45 PM',
+                    seats: ['I2', 'I3'],
+                    category: 'Platinum',
+                    totalAmount: 800,
+                    status: 'completed'
+                },
+                {
+                    id: 'CINE' + Math.random().toString(36).substr(2, 9).toUpperCase(),
+                    show: { name: 'Interstellar', emoji: '🚀', genre: 'Sci-Fi' },
+                    theater: 'Cinepolis Luxury - Westside Mall',
+                    date: '2026-02-05',
+                    time: '6:30 PM',
+                    seats: ['F8', 'F9', 'F10', 'F11'],
+                    category: 'Gold',
+                    totalAmount: 1000,
+                    status: 'upcoming'
+                }
+            ];
+            
+            // Update all user avatars, names, and emails
+            const initials = currentUser.name.charAt(0).toUpperCase();
+            document.querySelectorAll('[id^="userAvatar"]').forEach(el => el.textContent = initials);
+            document.querySelectorAll('[id^="userName"]').forEach(el => el.textContent = currentUser.name);
+            document.querySelectorAll('[id^="profileName"]').forEach(el => el.textContent = currentUser.name);
+            document.querySelectorAll('[id^="profileEmail"]').forEach(el => el.textContent = currentUser.email);
+            
+            document.getElementById('loginPage').classList.add('hidden');
+            document.getElementById('homePage').classList.remove('hidden');
+            
+            // Trigger hero animations
+            setTimeout(() => {
+                animateText('heroTitle', 'EXPERIENCE CINEMA', 80);
+                setTimeout(() => {
+                    animateText('heroSubtitle', 'Your Gateway to Entertainment Excellence', 30);
+                }, 800);
+            }, 100);
+        });
+
+        // Navigation functions
+        function showHome() {
+            document.querySelectorAll('.container > div').forEach(div => div.classList.add('hidden'));
+            document.getElementById('homePage').classList.remove('hidden');
+            
+            // Trigger hero animations when returning to home
+            setTimeout(() => {
+                animateText('heroTitle', 'EXPERIENCE CINEMA', 80);
+                setTimeout(() => {
+                    animateText('heroSubtitle', 'Your Gateway to Entertainment Excellence', 30);
+                }, 800);
+            }, 100);
+        }
+
+        function showShows(category) {
+            selectedCategory = category;
+            document.getElementById('categoryTitle').textContent = category;
+            document.getElementById('categoryBreadcrumb').textContent = category;
+            
+            const showsGrid = document.getElementById('showsGrid');
+            showsGrid.innerHTML = '';
+            
+            const shows = showsData[category] || [];
+            shows.forEach(show => {
+                const showCard = `
+                    <div class="show-card" onclick='selectShow(${JSON.stringify(show)})'>
+                        <div class="show-poster">
+                            <span style="font-size: 80px;">${show.emoji}</span>
+                            <div class="show-rating">⭐ ${show.rating}</div>
+                        </div>
+                        <div class="show-info">
+                            <div class="show-title">${show.name}</div>
+                            <div class="show-meta">${show.duration}</div>
+                            <span class="show-genre">${show.genre}</span>
+                        </div>
+                    </div>
+                `;
+                showsGrid.innerHTML += showCard;
+            });
+            
+            document.querySelectorAll('.container > div').forEach(div => div.classList.add('hidden'));
+            document.getElementById('showsPage').classList.remove('hidden');
+        }
+
+        function selectShow(show) {
+            selectedShow = show;
+            showTheaters();
+        }
+
+        function showTheaters() {
+            document.getElementById('theaterCategoryBreadcrumb').textContent = selectedCategory;
+            document.getElementById('theaterShowBreadcrumb').textContent = selectedShow.name;
+            
+            document.getElementById('selectedMovieInfo').innerHTML = `
+                <div class="selected-poster">
+                    <span style="font-size: 60px;">${selectedShow.emoji}</span>
+                </div>
+                <div>
+                    <h2 style="font-size: 32px; margin-bottom: 10px;">${selectedShow.name}</h2>
+                    <div style="color: var(--text-secondary); margin-bottom: 5px;">${selectedShow.genre} • ${selectedShow.duration}</div>
+                    <div style="color: var(--accent-gold);">⭐ ${selectedShow.rating}/10</div>
+                </div>
+            `;
+            
+            const theatersList = document.getElementById('theatersList');
+            theatersList.innerHTML = '';
+            
+            theatersData.forEach(theater => {
+                const hallTypesHTML = theater.hallTypes.map(type => `<span class="hall-badge">${type}</span>`).join('');
+                const timeSlotsHTML = theater.times.map(time => 
+                    `<div class="time-slot" onclick='selectTheaterAndTime(${JSON.stringify(theater)}, "${time}")'>${time}</div>`
+                ).join('');
+                
+                const theaterCard = `
+                    <div class="theater-card">
+                        <div class="theater-name">${theater.name}</div>
+                        <div class="theater-location">📍 ${theater.location}</div>
+                        <div class="hall-types">${hallTypesHTML}</div>
+                        <div class="time-slots">${timeSlotsHTML}</div>
+                    </div>
+                `;
+                theatersList.innerHTML += theaterCard;
+            });
+            
+            document.querySelectorAll('.container > div').forEach(div => div.classList.add('hidden'));
+            document.getElementById('theatersPage').classList.remove('hidden');
+        }
+
+        function selectTheaterAndTime(theater, time) {
+            selectedTheater = theater;
+            selectedTime = time;
+            showSeating();
+        }
+
+        function showSeating() {
+            document.getElementById('seatingShowBreadcrumb').textContent = selectedShow.name;
+            document.getElementById('seatingTheaterBreadcrumb').textContent = selectedTheater.name;
+            
+            selectedSeats = [];
+            updateBookingSummary();
+            
+            const seatingArea = document.getElementById('seatingArea');
+            seatingArea.innerHTML = '';
+            
+            seatCategories.forEach(category => {
+                const categoryDiv = document.createElement('div');
+                categoryDiv.className = 'seat-category';
+                
+                const categoryHeader = `
+                    <div class="category-header">
+                        <div class="category-name-price">
+                            <div class="category-label">${category.name}</div>
+                            <div class="category-price">₹${category.price}</div>
+                        </div>
+                        <div style="color: var(--text-secondary); font-size: 14px;">${category.seatsPerRow} seats per row</div>
+                    </div>
+                `;
+                categoryDiv.innerHTML = categoryHeader;
+                
+                const rowsDiv = document.createElement('div');
+                rowsDiv.className = 'seat-rows';
+                
+                category.rows.forEach(row => {
+                    const rowDiv = document.createElement('div');
+                    rowDiv.className = 'seat-row';
+                    
+                    const rowLabel = document.createElement('div');
+                    rowLabel.className = 'row-label';
+                    rowLabel.textContent = row;
+                    rowDiv.appendChild(rowLabel);
+                    
+                    for (let i = 1; i <= category.seatsPerRow; i++) {
+                        const seat = document.createElement('div');
+                        seat.className = `seat ${category.name.toLowerCase()}`;
+                        seat.dataset.row = row;
+                        seat.dataset.number = i;
+                        seat.dataset.category = category.name;
+                        seat.dataset.price = category.price;
+                        
+                        // Randomly mark some seats as booked
+                        if (Math.random() > 0.7) {
+                            seat.classList.add('booked');
+                        } else {
+                            seat.addEventListener('click', toggleSeat);
+                        }
+                        
+                        rowDiv.appendChild(seat);
+                    }
+                    
+                    rowsDiv.appendChild(rowDiv);
+                });
+                
+                categoryDiv.appendChild(rowsDiv);
+                seatingArea.appendChild(categoryDiv);
+            });
+            
+            document.querySelectorAll('.container > div').forEach(div => div.classList.add('hidden'));
+            document.getElementById('seatingPage').classList.remove('hidden');
+        }
+
+        function toggleSeat(e) {
+            const seat = e.target;
+            if (seat.classList.contains('booked')) return;
+            
+            const seatInfo = {
+                row: seat.dataset.row,
+                number: seat.dataset.number,
+                category: seat.dataset.category,
+                price: parseInt(seat.dataset.price),
+                id: `${seat.dataset.row}${seat.dataset.number}`
+            };
+            
+            if (seat.classList.contains('selected')) {
+                seat.classList.remove('selected');
+                selectedSeats = selectedSeats.filter(s => s.id !== seatInfo.id);
+            } else {
+                seat.classList.add('selected');
+                selectedSeats.push(seatInfo);
+            }
+            
+            updateBookingSummary();
+        }
+
+        function updateBookingSummary() {
+            const count = selectedSeats.length;
+            const total = selectedSeats.reduce((sum, seat) => sum + seat.price, 0);
+            
+            document.getElementById('selectedSeatsCount').textContent = count;
+            document.getElementById('totalAmount').textContent = `₹${total}`;
+            
+            // Update seat numbers list
+            const seatsList = document.getElementById('selectedSeatsList');
+            seatsList.innerHTML = '';
+            selectedSeats.forEach(seat => {
+                const badge = document.createElement('span');
+                badge.className = 'seat-badge';
+                badge.textContent = `${seat.row}${seat.number}`;
+                seatsList.appendChild(badge);
+            });
+            
+            document.getElementById('proceedToPayment').disabled = count === 0;
+        }
+
+        function showPayment() {
+            const seatNames = selectedSeats.map(s => `${s.row}${s.number}`).join(', ');
+            const total = selectedSeats.reduce((sum, seat) => sum + seat.price, 0);
+            
+            document.getElementById('paymentShowName').textContent = selectedShow.name;
+            document.getElementById('paymentTheaterName').textContent = selectedTheater.name;
+            document.getElementById('paymentShowTime').textContent = selectedTime;
+            document.getElementById('paymentSeats').textContent = seatNames;
+            document.getElementById('paymentTotalAmount').textContent = `₹${total}`;
+            
+            document.querySelectorAll('.container > div').forEach(div => div.classList.add('hidden'));
+            document.getElementById('paymentPage').classList.remove('hidden');
+        }
+
+        function selectPaymentMethod(element, method) {
+            document.querySelectorAll('.payment-method').forEach(el => el.classList.remove('selected'));
+            element.classList.add('selected');
+            selectedPaymentMethod = method;
+            document.getElementById('confirmPaymentBtn').disabled = false;
+        }
+
+        function confirmPayment() {
+            const bookingId = 'CINE' + Math.random().toString(36).substr(2, 9).toUpperCase();
+            document.getElementById('bookingId').textContent = bookingId;
+            
+            // Add new booking to user bookings
+            const seatNames = selectedSeats.map(s => `${s.row}${s.number}`);
+            const total = selectedSeats.reduce((sum, seat) => sum + seat.price, 0);
+            const category = selectedSeats[0].category;
+            
+            userBookings.unshift({
+                id: bookingId,
+                show: selectedShow,
+                theater: selectedTheater.name + ' - ' + selectedTheater.location,
+                date: new Date().toISOString().split('T')[0],
+                time: selectedTime,
+                seats: seatNames,
+                category: category,
+                totalAmount: total,
+                status: 'upcoming'
+            });
+            
+            document.querySelectorAll('.container > div').forEach(div => div.classList.add('hidden'));
+            document.getElementById('successPage').classList.remove('hidden');
+        }
+
+        function goBack() {
+            showShows(selectedCategory);
+        }
+
+        // Profile Dropdown Functions
+        function toggleProfileDropdown(event) {
+            event.stopPropagation();
+            const dropdown = event.currentTarget.querySelector('.profile-dropdown');
+            
+            // Close all other dropdowns
+            document.querySelectorAll('.profile-dropdown').forEach(d => {
+                if (d !== dropdown) {
+                    d.classList.remove('active');
+                }
+            });
+            
+            dropdown.classList.toggle('active');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.user-profile')) {
+                document.querySelectorAll('.profile-dropdown').forEach(d => {
+                    d.classList.remove('active');
+                });
+            }
+        });
+
+        // Logout Function
+        function logout() {
+            currentUser = null;
+            userBookings = [];
+            selectedCategory = '';
+            selectedShow = null;
+            selectedTheater = null;
+            selectedTime = '';
+            selectedSeats = [];
+            selectedPaymentMethod = '';
+            
+            document.querySelectorAll('.container > div').forEach(div => div.classList.add('hidden'));
+            document.getElementById('loginPage').classList.remove('hidden');
+            
+            // Reset form
+            document.getElementById('loginForm').reset();
+        }
+
+        // My Bookings Functions
+        function showMyBookings() {
+            // Close any open dropdowns
+            document.querySelectorAll('.profile-dropdown').forEach(d => {
+                d.classList.remove('active');
+            });
+            
+            const bookingsContainer = document.getElementById('bookingsContainer');
+            bookingsContainer.innerHTML = '';
+            
+            if (userBookings.length === 0) {
+                bookingsContainer.innerHTML = `
+                    <div class="empty-bookings">
+                        <div class="empty-icon">🎫</div>
+                        <div class="empty-message">No bookings yet</div>
+                        <button class="btn-primary" onclick="showHome()">Explore Shows</button>
+                    </div>
+                `;
+            } else {
+                userBookings.forEach(booking => {
+                    const bookingCard = `
+                        <div class="booking-card">
+                            <div class="booking-poster">
+                                <span style="font-size: 60px;">${booking.show.emoji}</span>
+                            </div>
+                            <div class="booking-details">
+                                <div class="booking-header">
+                                    <div>
+                                        <div class="booking-title">${booking.show.name}</div>
+                                        <div style="color: var(--text-secondary); font-size: 14px;">${booking.show.genre}</div>
+                                    </div>
+                                    <div class="booking-status ${booking.status}">${booking.status.toUpperCase()}</div>
+                                </div>
+                                <div class="booking-info-grid">
+                                    <div class="booking-info-item">
+                                        <div class="booking-info-label">Theater</div>
+                                        <div class="booking-info-value">${booking.theater}</div>
+                                    </div>
+                                    <div class="booking-info-item">
+                                        <div class="booking-info-label">Date & Time</div>
+                                        <div class="booking-info-value">${booking.date} • ${booking.time}</div>
+                                    </div>
+                                    <div class="booking-info-item">
+                                        <div class="booking-info-label">Seats (${booking.category})</div>
+                                        <div class="booking-info-value">${booking.seats.join(', ')}</div>
+                                    </div>
+                                    <div class="booking-info-item">
+                                        <div class="booking-info-label">Total Amount</div>
+                                        <div class="booking-info-value">₹${booking.totalAmount}</div>
+                                    </div>
+                                </div>
+                                <div class="booking-id-badge">Booking ID: ${booking.id}</div>
+                            </div>
+                        </div>
+                    `;
+                    bookingsContainer.innerHTML += bookingCard;
+                });
+            }
+            
+            document.querySelectorAll('.container > div').forEach(div => div.classList.add('hidden'));
+            document.getElementById('myBookingsPage').classList.remove('hidden');
+        }
+    </script>
+</body>
+</html>
