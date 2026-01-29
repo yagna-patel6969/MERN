@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CineVerse - Admin Dashboard</title>
+    <link rel="stylesheet" href="admin.css ">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎬 CineVerse Admin Dashboard</h1>
+            <p class="subtitle">Manage users and view booking data</p>
+        </div>
+
+        <div class="stats">
+            <div class="stat-card">
+                <div class="stat-value" id="totalUsers">0</div>
+                <div class="stat-label">Total Users</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="totalBookings">0</div>
+                <div class="stat-label">Total Bookings</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-value" id="totalRevenue">₹0</div>
+                <div class="stat-label">Total Revenue</div>
+            </div>
+        </div>
+
+        <div class="controls">
+            <div class="search-box">
+                <input type="text" id="searchInput" placeholder="Search by name, email, or phone..." onkeyup="filterUsers()">
+            </div>
+            <button onclick="refreshData()">🔄 Refresh Data</button>
+            <button onclick="exportToJSON()">📥 Export JSON</button>
+            <button onclick="exportToCSV()">📊 Export CSV</button>
+            <button class="danger" onclick="clearAllData()">🗑️ Clear All Data</button>
+        </div>
+
+        <div class="users-table">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Avatar</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Joined</th>
+                        <th>Bookings</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="usersTableBody">
+                    <!-- Data will be populated here -->
+                </tbody>
+            </table>
+        </div>
+
+        <div class="export-data">
+            <h3 style="margin-bottom: 15px; color: #d4af37;">📋 Data Export</h3>
+            <button onclick="showJSON()">View Full JSON Data</button>
+            <div id="jsonOutput" class="json-output" style="display: none;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Load data on page load
+        loadUserData();
+
+        function loadUserData() {
+            const users = getAllUsers();
+            displayUsers(users);
+            updateStats(users);
+        }
+
+        function getAllUsers() {
+            const users = localStorage.getItem('cineverse_users');
+            return users ? JSON.parse(users) : [];
+        }
+
+        function displayUsers(users) {
+            const tbody = document.getElementById('usersTableBody');
+            
+            if (users.length === 0) {
+                tbody.innerHTML = `
+                    <tr>
+                        <td colspan="7">
+                            <div class="empty-state">
+                                <div class="empty-icon">📭</div>
+                                <div>No users registered yet</div>
+                            </div>
+                        </td>
+                    </tr>
+                `;
+                return;
+            }
+
+            tbody.innerHTML = users.map((user, index) => `
+                <tr>
+                    <td>
+                        <div class="user-avatar">${user.name.charAt(0).toUpperCase()}</div>
+                    </td>
+                    <td><strong>${user.name}</strong></td>
+                    <td>${user.email}</td>
+                    <td>${user.phone}</td>
+                    <td>${new Date(user.createdAt).toLocaleDateString()}</td>
+                    <td>
+                        <span class="badge bookings">${user.bookings ? user.bookings.length : 0} bookings</span>
+                    </td>
+                    <td>
+                        <button class="view-bookings-btn" onclick="viewUserBookings(${index})">View Details</button>
+                    </td>
+                </tr>
+            `).join('');
+        }
+
+        function updateStats(users) {
+            let totalBookings = 0;
+            let totalRevenue = 0;
+
+            users.forEach(user => {
+                if (user.bookings) {
+                    totalBookings += user.bookings.length;
+                    user.bookings.forEach(booking => {
+                        totalRevenue += booking.totalAmount || 0;
+                    });
+                }
+            });
+
+            document.getElementById('totalUsers').textContent = users.length;
+            document.getElementById('totalBookings').textContent = totalBookings;
+            document.getElementById('totalRevenue').textContent = '₹' + totalRevenue.toLocaleString();
+        }
+
+        function filterUsers() {
+            const searchTerm = document.getElementById('searchInput').value.toLowerCase();
+            const users = getAllUsers();
+            
+            const filtered = users.filter(user => 
+                user.name.toLowerCase().includes(searchTerm) ||
+                user.email.toLowerCase().includes(searchTerm) ||
+                user.phone.includes(searchTerm)
+            );
+            
+            displayUsers(filtered);
+        }
+
+        function viewUserBookings(index) {
+            const users = getAllUsers();
+            const user = users[index];
+            
+            if (!user.bookings || user.bookings.length === 0) {
+                alert('No bookings found for this user.');
+                return;
+            }
+
+            let bookingsHTML = `USER: ${user.name} (${user.email})\n\n`;
+            bookingsHTML += `TOTAL BOOKINGS: ${user.bookings.length}\n\n`;
+            
+            user.bookings.forEach((booking, i) => {
+                bookingsHTML += `BOOKING #${i + 1}\n`;
+                bookingsHTML += `ID: ${booking.id}\n`;
+                bookingsHTML += `Show: ${booking.show.name}\n`;
+                bookingsHTML += `Theater: ${booking.theater}\n`;
+                bookingsHTML += `Date: ${booking.date} at ${booking.time}\n`;
+                bookingsHTML += `Seats: ${booking.seats.join(', ')} (${booking.category})\n`;
+                bookingsHTML += `Amount: ₹${booking.totalAmount}\n`;
+                bookingsHTML += `Status: ${booking.status}\n`;
+                bookingsHTML += `Booked: ${new Date(booking.bookedAt).toLocaleString()}\n`;
+                bookingsHTML += `\n${'='.repeat(50)}\n\n`;
+            });
+
+            alert(bookingsHTML);
+        }
+
+        function refreshData() {
+            loadUserData();
+            alert('Data refreshed successfully!');
+        }
+
+        function exportToJSON() {
+            const users = getAllUsers();
+            const dataStr = JSON.stringify(users, null, 2);
+            const dataBlob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(dataBlob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'cineverse-users-' + new Date().toISOString().split('T')[0] + '.json';
+            link.click();
+        }
+
+        function exportToCSV() {
+            const users = getAllUsers();
+            let csv = 'Name,Email,Phone,Joined Date,Total Bookings,Total Spent\n';
+            
+            users.forEach(user => {
+                const totalSpent = user.bookings ? 
+                    user.bookings.reduce((sum, b) => sum + (b.totalAmount || 0), 0) : 0;
+                const bookingCount = user.bookings ? user.bookings.length : 0;
+                
+                csv += `"${user.name}","${user.email}","${user.phone}","${new Date(user.createdAt).toLocaleDateString()}",${bookingCount},₹${totalSpent}\n`;
+            });
+
+            const blob = new Blob([csv], { type: 'text/csv' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.href = url;
+            link.download = 'cineverse-users-' + new Date().toISOString().split('T')[0] + '.csv';
+            link.click();
+        }
+
+        function showJSON() {
+            const output = document.getElementById('jsonOutput');
+            const users = getAllUsers();
+            
+            if (output.style.display === 'none') {
+                output.style.display = 'block';
+                output.textContent = JSON.stringify(users, null, 2);
+            } else {
+                output.style.display = 'none';
+            }
+        }
+
+        function clearAllData() {
+            if (confirm('⚠️ WARNING: This will permanently delete ALL user data and bookings. Are you sure?')) {
+                if (confirm('This action cannot be undone. Continue?')) {
+                    localStorage.removeItem('cineverse_users');
+                    loadUserData();
+                    alert('All data has been cleared.');
+                }
+            }
+        }
+    </script>
+</body>
+</html>
