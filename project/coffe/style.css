@@ -18,6 +18,7 @@
 
 html {
     scroll-behavior: smooth;
+    scroll-padding-top: 100px;
 }
 
 body {
@@ -437,6 +438,66 @@ section {
     font-size: 1rem;
 }
 
+/* ===== REVIEWS SECTION ===== */
+.reviews {
+    background-color: var(--secondary-dark);
+}
+
+.reviews-grid {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.review-card {
+    background-color: var(--primary-dark);
+    padding: 2rem;
+    border-radius: 15px;
+    border: 2px solid var(--border-color);
+    flex: 1 1 300px;
+    max-width: 400px;
+    transition: all 0.1s ease; /* Faster transition for tilt */
+    transform-style: preserve-3d;
+}
+
+.review-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.avatar {
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-brown);
+    color: var(--text-light);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border: 2px solid var(--accent-gold);
+}
+
+.reviewer-info h4 {
+    color: var(--accent-gold);
+    font-size: 1.1rem;
+}
+
+.stars {
+    color: #ffd700;
+    font-size: 1rem;
+}
+
+.review-text {
+    color: var(--text-cream);
+    font-style: italic;
+    line-height: 1.6;
+}
+
 /* ===== GALLERY SECTION ===== */
 .gallery {
     background-color: var(--secondary-dark);
@@ -511,6 +572,100 @@ section {
     border-radius: 12px;
 }
 
+
+/* ===== ORDER SECTION ===== */
+.order {
+    background-color: var(--primary-dark);
+}
+
+.order-form-container {
+    background-color: var(--secondary-dark);
+    padding: 3rem;
+    border-radius: 15px;
+    border: 2px solid var(--border-color);
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.form-group-row {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.form-group label {
+    color: var(--accent-gold);
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1rem;
+    background-color: var(--primary-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    color: var(--text-light);
+}
+
+.menu-selection h3 {
+    color: var(--accent-gold);
+    margin-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+    padding-bottom: 0.5rem;
+}
+
+.selection-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    border-bottom: 1px solid rgba(74, 52, 38, 0.3);
+}
+
+.checkbox-container {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    gap: 1rem;
+    color: var(--text-cream);
+}
+
+.order-checkbox {
+    width: 20px;
+    height: 20px;
+    accent-color: var(--accent-gold);
+}
+
+.qty-input {
+    width: 60px;
+    padding: 0.5rem;
+    background-color: var(--primary-dark);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    color: var(--text-light);
+    text-align: center;
+}
+
+.order-summary {
+    margin-top: 2rem;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 1rem;
+}
+
+.order-summary h3 {
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+}
 
 /* ===== CONTACT SECTION ===== */
 .contact {
@@ -734,6 +889,25 @@ section {
 
     .gallery-item {
         flex: 1 1 100%;
+    }
+
+    .form-group-row {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .order-form-container {
+        padding: 1.5rem;
+    }
+
+    .selection-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+
+    .qty-input {
+        align-self: flex-end;
     }
 }
 
