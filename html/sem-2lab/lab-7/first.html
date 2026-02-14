@@ -1,0 +1,159 @@
+	<!DOCTYPE html>
+	<html>
+	<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Lab-7 Fixed</title>
+
+	<style>
+	*{
+	box-sizing: border-box;
+	margin: 0;
+	font-family: Arial, sans-serif;
+	}
+
+	/* HEADER */
+	#header{
+	height: 10vh;
+	display: flex;
+	}
+
+	#logo{
+	width: 20%;
+	border: 2px solid orange;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 22px;
+	}
+
+	#navbar{
+	width: 80%;
+	border: 2px solid skyblue;
+	display: flex;
+	align-items: center;
+	gap: 40px;
+	padding-left: 30px;
+	}
+
+	#navbar a{
+	text-decoration: none;
+	font-size: 22px;
+	}
+
+	/* BODY */
+	#body{
+	height: 80vh;
+	display: flex;
+	border: 2px solid black;
+	}
+
+	/* LEFT MENU */
+	#left{
+	width: 30%;
+	border: 2px solid blue;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 20px;
+	padding-top: 20px;
+	}
+
+	#left div{
+	width: 80%;
+	border: 2px solid black;
+	padding: 10px;
+	font-size: 22px;
+	text-align: center;
+	}
+
+	/* RIGHT CONTENT */
+	#right{
+	width: 70%;
+	border: 2px solid green;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	gap: 20px;
+	}
+
+	/* UPPER SECTION */
+	#upper{
+	height: 35vh;
+	border: 2px dotted red;
+	display: flex;
+	gap: 20px;
+	padding: 10px;
+	}
+
+	#upper div{
+	flex: 1;
+	border: 2px solid black;
+	}
+
+	/* LOWER SECTION */
+	#lower{
+	height: 35vh;
+	border: 2px dotted red;
+	display: flex;
+	gap: 20px;
+	padding: 10px;
+	}
+
+	#lower div{
+	flex: 1;
+	border: 2px dotted purple;
+	}
+
+	/* FOOTER */
+	#footer{
+	height: 10vh;
+	border-top: 2px solid black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 26px;
+	}
+	</style>
+	</head>
+
+	<body>
+
+	<div id="header">
+	<div id="logo">Logo Here</div>
+	<div id="navbar">
+		<a href="#">Home</a>
+		<a href="#">About</a>
+		<a href="#">Contact</a>
+	</div>
+	</div>
+
+	<div id="body">
+	<div id="left">
+		<div>Result</div>
+		<div>Apply</div>
+		<div>Placement</div>
+		<div>Recruitment</div>
+		<div>News</div>
+	</div>
+
+	<div id="right">
+		<div id="upper">
+		<div></div>
+		<div></div>
+		</div>
+
+		<div id="lower">
+		<div></div>
+		<div></div>
+		<div></div>
+		</div>
+	</div>
+	</div>
+
+	<div id="footer">
+	Footer
+	</div>
+
+	</body>
+	</html>

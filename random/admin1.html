@@ -227,6 +227,7 @@
             </button>
             <br>
             <button onclick="refreshData()">🔄 Refresh</button>
+            <button onclick="checkStorage()">🔍 Check Storage</button>
             <button onclick="exportData()">📥 Export CSV</button>
             <button onclick="clearData()" style="background: linear-gradient(135deg, #e50914, #b00711); color: white;">
                 🗑️ Clear All
@@ -267,7 +268,14 @@
 
         function getAllUsers() {
             const data = localStorage.getItem(STORAGE_KEY);
-            return data ? JSON.parse(data) : [];
+            const users = data ? JSON.parse(data) : [];
+            
+            // Debug: Show what we found
+            console.log('📊 Found users:', users);
+            console.log('📊 Storage key:', STORAGE_KEY);
+            console.log('📊 Raw data:', localStorage.getItem(STORAGE_KEY));
+            
+            return users;
         }
 
         function saveUser(userData) {
@@ -382,6 +390,26 @@
                 refreshData();
                 alert('✅ All data has been cleared!');
             }
+        }
+
+        function checkStorage() {
+            console.log('=== STORAGE DEBUG ===');
+            console.log('Looking for key:', STORAGE_KEY);
+            console.log('Data found:', localStorage.getItem(STORAGE_KEY));
+            console.log('All localStorage keys:', Object.keys(localStorage));
+            
+            // Show all storage
+            let allData = '';
+            for (let key in localStorage) {
+                if (localStorage.hasOwnProperty(key)) {
+                    allData += `\n${key}: ${localStorage.getItem(key)}\n`;
+                }
+            }
+            
+            alert('📊 STORAGE CHECK:\n\nLooking for: ' + STORAGE_KEY + '\n\nAll localStorage data:' + allData);
+            
+            // Try to load data
+            refreshData();
         }
 
         // Auto-refresh every 5 seconds

@@ -1,0 +1,27 @@
+<!-- WAP in JavaScript to print the Fibonacci series of a number -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+</body>
+<script>
+    let n = Number(prompt("Enter a term"));
+
+    let first = 0, second = 1, sum = 0;
+    let series = first + " " + second;
+    for (let i = 2; i < n; i++) {
+        sum = first + second;
+        series += " " + sum;
+        first = second;
+        second = sum;
+    }
+    console.log(series);
+</script>
+
+</html>

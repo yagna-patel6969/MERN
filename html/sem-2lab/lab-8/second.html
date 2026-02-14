@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style>
+		*{
+			box-sizing: border-box;
+			margin: 0px;
+		}
+		#header{
+			height: 20vh;
+			width: 100%;
+			border: solid black 2px;
+		}
+		#title{
+			margin: 15px;
+			color: gray;
+		}
+		#subtitle{
+			margin: 15px;
+			color: gray;
+		}
+		#body{
+			height: 60vh;
+			width: 100%;
+		}
+		#left{
+			float: left;
+			height: 70%;
+			width: 70%;
+			border:double purple 2px;
+			margin: 10px;
+		}
+		#left h3{
+			color: gray;
+			margin: 10px;
+		}
+		#left p{
+			margin: 10px;
+
+		}
+		#left a{
+			margin: 10px;
+			color: red;
+		}
+		.l-list{
+			margin-left: 20px;
+		}
+		#left ul{
+			margin: 10px;
+		}
+		#right{
+			float: left;
+			height: 50%;
+			width: 25%;
+			border: solid black 2px;
+		    margin: 10px; 
+		    padding: 5px;
+		}
+		#right a{
+			color: red;
+		}
+		#h-footer{
+			height: 20%;
+			border-top:solid gray 2px;
+			border-bottom:solid gray 2px;
+			width: 90%;
+			float: left;
+			margin: 0px 10px;
+			background-color: gray;
+		}
+		hr{
+			margin: 10px;
+		}
+		#footer{
+			height: 20vh;
+			width: 100%;
+		}
+		#f-content{
+			text-align: center;		}
+		#f-content a{
+			color: red;
+		}
+		#a,#b,#c{
+			border-right:solid black 2px ;
+			padding: 3px;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div id="header">
+			<h2 id="title">Site Title</h2>
+			<p id="subtitle">Lorem ipsum dolor sit amet, consectetur .</p>
+		</div>
+		<div id="body">
+			<div id="left">
+				<h3>CenterColumn</h3>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam
+			</p>
+			<h3> Header-2</h3>
+			<a href="#">Link Item</a>
+			<ul>
+				<li>List Item</li>
+				<li>List Item</li>
+				<li>List Item</li>
+				<li class="l-list">List Item</li>
+				<li class="l-list">List Item</li>	
+			</ul>
+			</div>
+			<div id="right">
+				<p>Lorem ipsum dolor</p>
+				<a href="#">Link Item</a><br>
+				<a href="#">Link Item</a><br>
+				<a href="#">Link Item</a>
+				<p>
+					Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris
+				</p>
+			</div>
+			<div id="h-footer" >
+				<h4>BlockQuote</h4>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+				tempor incididunt ut labore et dolore magna aliqua.</p>
+			</div>
+		</div>
+		<hr>
+		<div id="footer">
+			<div id="f-content">
+				<a href="#" id="a">XHTML</a>
+				<a href="#" id="b">css</a>
+				<a href="#" id="c">WCAG</a>
+				<a href="#">The css</a>
+			</div>
+		</div>
+	</div>
+</body>
+</html>

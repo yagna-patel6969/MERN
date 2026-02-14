@@ -1,0 +1,48 @@
+<!-- WAP in JavaScript to check whether the given number is Armstrong or not.  -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // taking number as a input
+    let n=number(prompt("Enter a number:"))
+    
+    //store original number
+    let original=n;
+
+    // counting digits in a number
+    let temp=n;
+    let count=0;
+    while(temp > 0){
+        temp=temp/10;
+        count++;
+    }
+    consol.log("number of digits:",count);
+
+    //manin code
+
+    let sum=0,c,power;
+    temp=n;
+    while (temp > 0) {
+        c=tem%10;
+        power=math.powe(c,p);
+        sum=sum+power;
+        temp=temp/10;
+    }
+
+    if(sum===original){
+        console.log("number is armstrong");
+    }
+    else{
+        console.log("number is not armstrong");
+    }
+
+</script>
+</html>
