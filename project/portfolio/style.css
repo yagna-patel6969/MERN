@@ -384,6 +384,19 @@ img {
     color: #bae6fd;
 }
 
+.project-link {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.9rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.project-link:hover {
+    text-decoration: underline;
+}
+
 .project-card.placeholder {
     border-style: dashed;
     border-color: var(--border-subtle);

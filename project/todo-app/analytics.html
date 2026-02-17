@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Analytics - TaskMaster</title>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" style="cursor: pointer; text-decoration: none;">✓ TaskMaster</a>
+      
+      <button class="menu-toggle">☰</button>
+      
+      <ul class="navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="analytics.html">Analytics</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="leaderboard.html">Leaderboard</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li id="user-info"></li>
+        <li><button id="theme-toggle" class="theme-toggle">🌙</button></li>
+        <li><button id="logout-btn" class="btn btn-sm btn-secondary">Logout</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <h1>📊 Analytics & Statistics</h1>
+      <p class="text-secondary mb-4">Track your productivity and progress</p>
+
+      <!-- Period Selector -->
+      <div class="flex gap-2 mb-4">
+        <button class="btn btn-sm btn-secondary period-btn active" data-period="week">Last 7 Days</button>
+        <button class="btn btn-sm btn-secondary period-btn" data-period="month">Last 30 Days</button>
+      </div>
+
+      <!-- Overview Stats -->
+      <div class="grid grid-4 mb-4">
+        <div class="stats-card">
+          <div class="stats-value" id="period-total">0</div>
+          <div class="stats-label">Total Tasks</div>
+        </div>
+        <div class="stats-card">
+          <div class="stats-value" id="period-completed">0</div>
+          <div class="stats-label">Completed</div>
+        </div>
+        <div class="stats-card">
+          <div class="stats-value" id="period-pending">0</div>
+          <div class="stats-label">Pending</div>
+        </div>
+        <div class="stats-card">
+          <div class="stats-value" id="period-completion-rate">0%</div>
+          <div class="stats-label">Completion Rate</div>
+        </div>
+      </div>
+
+      <!-- Streak & Completion Time -->
+      <div class="grid grid-3 mb-4">
+        <div class="card">
+          <h3>🔥 Current Streak</h3>
+          <div class="stats-value" id="current-streak">0</div>
+          <p class="text-muted">days</p>
+        </div>
+        <div class="card">
+          <h3>🏆 Longest Streak</h3>
+          <div class="stats-value" id="longest-streak">0</div>
+          <p class="text-muted">days</p>
+        </div>
+        <div class="card">
+          <h3>⏱️ Avg. Completion Time</h3>
+          <div class="stats-value" id="avg-completion">0</div>
+          <p class="text-muted">days</p>
+        </div>
+      </div>
+
+      <!-- Category Breakdown -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h3 class="card-title">📂 Tasks by Category</h3>
+        </div>
+        <div id="category-breakdown"></div>
+      </div>
+
+      <!-- Priority Distribution -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h3 class="card-title">⚡ Priority Distribution</h3>
+        </div>
+        <div class="grid grid-3 gap-2">
+          <div class="card" style="background: rgba(239, 68, 68, 0.1);">
+            <div class="stats-value" id="high-priority" style="color: var(--error);">0</div>
+            <div class="stats-label">High Priority</div>
+          </div>
+          <div class="card" style="background: rgba(245, 158, 11, 0.1);">
+            <div class="stats-value" id="medium-priority" style="color: var(--warning);">0</div>
+            <div class="stats-label">Medium Priority</div>
+          </div>
+          <div class="card" style="background: rgba(16, 185, 129, 0.1);">
+            <div class="stats-value" id="low-priority" style="color: var(--success);">0</div>
+            <div class="stats-label">Low Priority</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Productivity Trend (Last 7 days) -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">📈 Productivity Trend (Last 7 Days)</h3>
+        </div>
+        <div id="productivity-trend"></div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/theme.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/tasks.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    if (!authManager.requireAuth()) {
+      // Will redirect
+    }
+
+    let currentPeriod = 'week';
+
+    function initPage() {
+      loadPeriodStats();
+      loadStreakData();
+      loadCompletionTime();
+      loadCategoryBreakdown();
+      loadPriorityDistribution();
+      loadProductivityTrend();
+    }
+
+    function loadPeriodStats() {
+      const stats = analyticsManager.getTaskStats(currentPeriod);
+      document.getElementById('period-total').textContent = stats.total;
+      document.getElementById('period-completed').textContent = stats.completed;
+      document.getElementById('period-pending').textContent = stats.pending;
+      document.getElementById('period-completion-rate').textContent = stats.completionRate + '%';
+    }
+
+    function loadStreakData() {
+      const streak = analyticsManager.getStreakData();
+      document.getElementById('current-streak').textContent = streak.current;
+      document.getElementById('longest-streak').textContent = streak.longest;
+    }
+
+    function loadCompletionTime() {
+      const timeStats = analyticsManager.getCompletionTimeStats();
+      document.getElementById('avg-completion').textContent = timeStats.average;
+    }
+
+    function loadCategoryBreakdown() {
+      const breakdown = analyticsManager.getCategoryBreakdown();
+      const container = document.getElementById('category-breakdown');
+
+      const html = Object.entries(breakdown).map(([id, data]) => `
+        <div class="flex-between p-2" style="border-bottom: 1px solid var(--border-color);">
+          <div class="flex gap-2">
+            <span class="category-dot" style="background: ${data.color}; width: 12px; height: 12px; border-radius: 50%; margin-top: 4px;"></span>
+            <div>
+              <div class="font-semibold">${data.name}</div>
+              <div class="text-muted" style="font-size: 0.875rem;">
+                ${data.completed} completed / ${data.total} total
+              </div>
+            </div>
+          </div>
+          <div class="text-right">
+            <div class="font-bold">${data.percentage}%</div>
+            <div class="text-muted" style="font-size: 0.875rem;">${data.pending} pending</div>
+          </div>
+        </div>
+      `).join('');
+
+      container.innerHTML = html || '<p class="text-muted p-2">No data available</p>';
+    }
+
+    function loadPriorityDistribution() {
+      const distribution = analyticsManager.getPriorityDistribution();
+      document.getElementById('high-priority').textContent = distribution.high;
+      document.getElementById('medium-priority').textContent = distribution.medium;
+      document.getElementById('low-priority').textContent = distribution.low;
+    }
+
+    function loadProductivityTrend() {
+      const trend = analyticsManager.getProductivityTrend(7);
+      const container = document.getElementById('productivity-trend');
+
+      const maxTasks = Math.max(...trend.map(d => d.total), 1);
+
+      const html = trend.map(day => {
+        const date = new Date(day.date);
+        const dayName = date.toLocaleDateString('en-US', { weekday: 'short' });
+        const completedHeight = (day.completed / maxTasks) * 100;
+        const pendingHeight = (day.pending / maxTasks) * 100;
+
+        return `
+          <div style="flex: 1; text-align: center;">
+            <div style="height: 150px; display: flex; flex-direction: column; justify-content: flex-end; gap: 2px;">
+              <div style="background: var(--success); height: ${completedHeight}%; border-radius: 4px; min-height: ${day.completed > 0 ? '4px' : '0'};" title="Completed: ${day.completed}"></div>
+              <div style="background: var(--warning); height: ${pendingHeight}%; border-radius: 4px; min-height: ${day.pending > 0 ? '4px' : '0'};" title="Pending: ${day.pending}"></div>
+            </div>
+            <div class="text-muted mt-1" style="font-size: 0.75rem;">${dayName}</div>
+            <div class="font-semibold" style="font-size: 0.875rem;">${day.total}</div>
+          </div>
+        `;
+      }).join('');
+
+      container.innerHTML = `
+        <div style="display: flex; gap: 1rem; padding: 1rem;">
+          ${html}
+        </div>
+        <div class="flex-center gap-3 mt-2" style="font-size: 0.875rem;">
+          <div class="flex gap-1"><span style="width: 12px; height: 12px; background: var(--success); border-radius: 2px;"></span> Completed</div>
+          <div class="flex gap-1"><span style="width: 12px; height: 12px; background: var(--warning); border-radius: 2px;"></span> Pending</div>
+        </div>
+      `;
+    }
+
+    // Period selector
+    document.querySelectorAll('.period-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.period-btn').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentPeriod = btn.dataset.period;
+        loadPeriodStats();
+      });
+    });
+
+    document.getElementById('logout-btn').addEventListener('click', () => authManager.logout());
+
+    initPage();
+  </script>
+</body>
+</html>

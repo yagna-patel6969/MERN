@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Leaderboard - TaskMaster</title>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" style="cursor: pointer; text-decoration: none;">✓ TaskMaster</a>
+      
+      <button class="menu-toggle">☰</button>
+      
+      <ul class="navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="analytics.html">Analytics</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="leaderboard.html">Leaderboard</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li id="user-info"></li>
+        <li><button id="theme-toggle" class="theme-toggle">🌙</button></li>
+        <li><button id="logout-btn" class="btn btn-sm btn-secondary">Logout</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <h1>🏆 Leaderboard</h1>
+      <p class="text-secondary mb-4">Compete, earn points, win rewards!</p>
+
+      <!-- Cycle Info -->
+      <div class="card mb-4" style="background: var(--gradient-primary); color: white; border: none;">
+        <div class="flex-between">
+          <div>
+            <h3 style="color: white; margin-bottom: 0.5rem;">Current Cycle</h3>
+            <p style="opacity: 0.9; margin: 0;">2-Month Competition Period</p>
+          </div>
+          <div class="text-right">
+            <div class="stats-value" id="days-remaining" style="color: white;">0</div>
+            <div style="opacity: 0.9; font-size: 0.875rem;">days remaining</div>
+          </div>
+        </div>
+        <div class="mt-3">
+          <div style="background: rgba(255,255,255,0.2); height: 8px; border-radius: 4px; overflow: hidden;">
+            <div id="cycle-progress" style="background: white; height: 100%; transition: width 0.3s;"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Your Stats -->
+      <div class="grid grid-4 mb-4">
+        <div class="stats-card">
+          <div class="stats-value" id="your-points">0</div>
+          <div class="stats-label">Your Points</div>
+        </div>
+        <div class="stats-card">
+          <div class="stats-value" id="your-rank">-</div>
+          <div class="stats-label">Your Rank</div>
+        </div>
+        <div class="stats-card">
+          <div class="stats-value" id="your-tasks">0</div>
+          <div class="stats-label">Tasks Completed</div>
+        </div>
+        <div class="stats-card">
+          <div class="stats-value" id="your-achievements">0</div>
+          <div class="stats-label">Achievements</div>
+        </div>
+      </div>
+
+      <!-- Achievements -->
+      <div class="card mb-4">
+        <div class="card-header">
+          <h3 class="card-title">🎖️ Your Achievements</h3>
+        </div>
+        <div id="achievements-container" class="grid grid-3 gap-2"></div>
+      </div>
+
+      <!-- Leaderboard -->
+      <div class="card">
+        <div class="card-header">
+          <h3 class="card-title">🏅 Top Performers</h3>
+          <p class="text-muted" style="margin: 0; font-size: 0.875rem;">Top performer wins a special gift! 🎁</p>
+        </div>
+        <div id="leaderboard-container"></div>
+      </div>
+
+      <!-- Points Info -->
+      <div class="card mt-4">
+        <div class="card-header">
+          <h3 class="card-title">💡 How to Earn Points</h3>
+        </div>
+        <div class="grid grid-2 gap-2">
+          <div class="card">
+            <h4>✅ Complete Tasks</h4>
+            <p class="text-muted">Base: 10 points per task</p>
+          </div>
+          <div class="card">
+            <h4>⚡ Priority Bonus</h4>
+            <p class="text-muted">High: +5 pts | Medium: +3 pts</p>
+          </div>
+          <div class="card">
+            <h4>⏰ On-Time Bonus</h4>
+            <p class="text-muted">Complete before due date: +5 pts</p>
+          </div>
+          <div class="card">
+            <h4>🔥 Streak Bonus</h4>
+            <p class="text-muted">Maintain daily completion streaks</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Scripts -->
+  <script src="js/theme.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/tasks.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/gamification.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    if (!authManager.requireAuth()) {
+      // Will redirect
+    }
+
+    function initPage() {
+      loadCycleInfo();
+      loadYourStats();
+      loadAchievements();
+      loadLeaderboard();
+    }
+
+    function loadCycleInfo() {
+      const daysRemaining = gamificationManager.getDaysUntilCycleEnd();
+      const progress = gamificationManager.getCycleProgress();
+
+      document.getElementById('days-remaining').textContent = daysRemaining;
+      document.getElementById('cycle-progress').style.width = progress + '%';
+    }
+
+    function loadYourStats() {
+      const user = authManager.getCurrentUser();
+      const rank = gamificationManager.getUserRank(user.id);
+      const achievements = gamificationManager.getAchievements(user.id);
+
+      document.getElementById('your-points').textContent = user.points || 0;
+      document.getElementById('your-rank').textContent = rank ? `#${rank}` : '-';
+      document.getElementById('your-tasks').textContent = user.tasksCompleted || 0;
+      document.getElementById('your-achievements').textContent = achievements.length;
+    }
+
+    function loadAchievements() {
+      const user = authManager.getCurrentUser();
+      const achievements = gamificationManager.getAchievements(user.id);
+      const container = document.getElementById('achievements-container');
+
+      if (achievements.length === 0) {
+        container.innerHTML = '<p class="text-muted">Complete tasks to unlock achievements!</p>';
+        return;
+      }
+
+      container.innerHTML = achievements.map(achievement => `
+        <div class="card text-center">
+          <div style="font-size: 3rem; margin-bottom: 0.5rem;">${achievement.icon}</div>
+          <div class="font-semibold">${achievement.name}</div>
+          <div class="text-muted" style="font-size: 0.875rem;">${achievement.description}</div>
+        </div>
+      `).join('');
+    }
+
+    function loadLeaderboard() {
+      const leaderboard = gamificationManager.getLeaderboard();
+      const container = document.getElementById('leaderboard-container');
+      const currentUser = authManager.getCurrentUser();
+
+      if (leaderboard.length === 0) {
+        container.innerHTML = '<p class="text-muted p-3">No data available yet</p>';
+        return;
+      }
+
+      container.innerHTML = leaderboard.map((user, index) => {
+        const isCurrentUser = user.id === currentUser.id;
+        const medal = index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : '';
+
+        return `
+          <div class="flex-between p-3" style="border-bottom: 1px solid var(--border-color); ${isCurrentUser ? 'background: rgba(99, 102, 241, 0.1);' : ''}">
+            <div class="flex gap-3">
+              <div class="font-bold" style="min-width: 40px; font-size: 1.25rem;">
+                ${medal || `#${index + 1}`}
+              </div>
+              <div>
+                <div class="font-semibold">${user.name} ${isCurrentUser ? '(You)' : ''}</div>
+                <div class="text-muted" style="font-size: 0.875rem;">
+                  ${user.tasksCompleted} tasks completed
+                </div>
+              </div>
+            </div>
+            <div class="text-right">
+              <div class="font-bold" style="font-size: 1.25rem; background: var(--gradient-primary); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+                ${user.points}
+              </div>
+              <div class="text-muted" style="font-size: 0.875rem;">points</div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    document.getElementById('logout-btn').addEventListener('click', () => authManager.logout());
+
+    initPage();
+  </script>
+</body>
+</html>

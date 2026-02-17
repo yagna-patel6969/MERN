@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Team Collaboration - TaskMaster</title>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+  <!-- Navigation -->
+  <nav class="navbar">
+    <div class="container">
+      <a href="index.html" class="navbar-brand" style="cursor: pointer; text-decoration: none;">✓ TaskMaster</a>
+      
+      <button class="menu-toggle">☰</button>
+      
+      <ul class="navbar-nav">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="analytics.html">Analytics</a></li>
+        <li><a href="team.html">Team</a></li>
+        <li><a href="leaderboard.html">Leaderboard</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+        <li id="user-info"></li>
+        <li><button id="theme-toggle" class="theme-toggle">🌙</button></li>
+        <li><button id="logout-btn" class="btn btn-sm btn-secondary">Logout</button></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      <div class="flex-between mb-4">
+        <div>
+          <h1>👥 Team Collaboration</h1>
+          <p class="text-secondary">Work together, achieve more</p>
+        </div>
+        <button id="create-team-btn" class="btn btn-primary">+ Create Team</button>
+      </div>
+
+      <!-- My Teams -->
+      <div id="teams-container"></div>
+    </div>
+  </main>
+
+  <!-- Create Team Modal -->
+  <div id="create-team-modal" class="modal-overlay" style="display: none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">Create New Team</h2>
+        <button class="modal-close" onclick="closeModal('create-team-modal')">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="create-team-form">
+          <div class="form-group">
+            <label class="form-label">Team Name *</label>
+            <input type="text" id="team-name" class="form-input" placeholder="Enter team name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Description</label>
+            <textarea id="team-description" class="form-textarea" placeholder="Team description..."></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('create-team-modal')">Cancel</button>
+        <button class="btn btn-primary" onclick="createTeam()">Create Team</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add Member Modal -->
+  <div id="add-member-modal" class="modal-overlay" style="display: none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">Add Team Member</h2>
+        <button class="modal-close" onclick="closeModal('add-member-modal')">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="add-member-form">
+          <input type="hidden" id="member-team-id">
+          <div class="form-group">
+            <label class="form-label">Member Name *</label>
+            <input type="text" id="member-name" class="form-input" placeholder="Enter name" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Member Email *</label>
+            <input type="email" id="member-email" class="form-input" placeholder="email@example.com" required>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('add-member-modal')">Cancel</button>
+        <button class="btn btn-primary" onclick="addMember()">Add Member</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Assign Task Modal -->
+  <div id="assign-task-modal" class="modal-overlay" style="display: none;">
+    <div class="modal">
+      <div class="modal-header">
+        <h2 class="modal-title">Assign Task</h2>
+        <button class="modal-close" onclick="closeModal('assign-task-modal')">×</button>
+      </div>
+      <div class="modal-body">
+        <form id="assign-task-form">
+          <input type="hidden" id="assign-team-id">
+          <div class="form-group">
+            <label class="form-label">Task Title *</label>
+            <input type="text" id="assign-task-title" class="form-input" placeholder="Enter task title" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Description</label>
+            <textarea id="assign-task-description" class="form-textarea" placeholder="Task details..."></textarea>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Assign To *</label>
+            <select id="assign-task-member" class="form-select" required></select>
+          </div>
+          <div class="grid grid-2 gap-2">
+            <div class="form-group">
+              <label class="form-label">Due Date</label>
+              <input type="date" id="assign-task-date" class="form-input">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Priority</label>
+              <select id="assign-task-priority" class="form-select">
+                <option value="low">Low</option>
+                <option value="medium" selected>Medium</option>
+                <option value="high">High</option>
+              </select>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" onclick="closeModal('assign-task-modal')">Cancel</button>
+        <button class="btn btn-primary" onclick="assignTask()">Assign Task</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="js/theme.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/tasks.js"></script>
+  <script src="js/team.js"></script>
+  <script src="js/notifications.js"></script>
+  <script src="js/app.js"></script>
+
+  <script>
+    if (!authManager.requireAuth()) {
+      // Will redirect
+    }
+
+    function initPage() {
+      loadTeams();
+    }
+
+    function loadTeams() {
+      const teams = teamManager.getUserTeams();
+      const container = document.getElementById('teams-container');
+      const user = authManager.getCurrentUser();
+
+      if (teams.length === 0) {
+        container.innerHTML = '<div class="empty-state"><div class="empty-state-icon">👥</div><h3 class="empty-state-title">No teams yet</h3><p class="empty-state-text">Create a team to start collaborating!</p></div>';
+        return;
+      }
+
+      container.innerHTML = teams.map(team => {
+        const isLeader = team.leaderId === user.id;
+        const stats = teamManager.getTeamStats(team.id);
+
+        return `
+          <div class="card mb-3">
+            <div class="card-header">
+              <div class="flex-between">
+                <div>
+                  <h3 class="card-title">${team.name}</h3>
+                  <p class="text-muted">${team.description || 'No description'}</p>
+                </div>
+                ${isLeader ? `
+                  <div class="flex gap-2">
+                    <button class="btn btn-sm btn-secondary" onclick="openAddMember('${team.id}')">+ Add Member</button>
+                    <button class="btn btn-sm btn-primary" onclick="openAssignTask('${team.id}')">Assign Task</button>
+                  </div>
+                ` : ''}
+              </div>
+            </div>
+
+            <div class="card-body">
+              <div class="grid grid-4 gap-2 mb-3">
+                <div class="stats-card">
+                  <div class="stats-value">${stats.totalMembers}</div>
+                  <div class="stats-label">Members</div>
+                </div>
+                <div class="stats-card">
+                  <div class="stats-value">${stats.totalTasks}</div>
+                  <div class="stats-label">Total Tasks</div>
+                </div>
+                <div class="stats-card">
+                  <div class="stats-value">${stats.completed}</div>
+                  <div class="stats-label">Completed</div>
+                </div>
+                <div class="stats-card">
+                  <div class="stats-value">${stats.completionRate}%</div>
+                  <div class="stats-label">Completion Rate</div>
+                </div>
+              </div>
+
+              <h4 class="mb-2">Team Members</h4>
+              <div class="grid grid-3 gap-2 mb-3">
+                ${team.members.map(member => `
+                  <div class="card">
+                    <div class="flex-between">
+                      <div>
+                        <div class="font-semibold">${member.name}</div>
+                        <div class="text-muted" style="font-size: 0.875rem;">${member.email}</div>
+                        ${member.role === 'leader' ? '<span class="badge badge-primary mt-1">Leader</span>' : ''}
+                      </div>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+
+              <h4 class="mb-2">Team Tasks</h4>
+              <div id="team-tasks-${team.id}">
+                ${team.tasks.length === 0 ? '<p class="text-muted">No tasks assigned yet</p>' : 
+                  team.tasks.map(task => `
+                    <div class="task-card ${task.status === 'completed' ? 'completed' : ''}">
+                      <div class="task-header">
+                        <div class="task-title">${task.title}</div>
+                        <span class="task-priority ${task.priority}">${task.priority}</span>
+                      </div>
+                      ${task.description ? `<p class="text-secondary" style="margin: 0.5rem 0; font-size: 0.875rem;">${task.description}</p>` : ''}
+                      <div class="task-meta">
+                        <span>👤 ${task.assignedToName}</span>
+                        ${task.dueDate ? `<span>📅 ${app.formatDate(task.dueDate)}</span>` : ''}
+                        <span class="badge badge-${task.status === 'completed' ? 'success' : task.status === 'in-progress' ? 'warning' : 'primary'}">${task.status}</span>
+                      </div>
+                    </div>
+                  `).join('')
+                }
+              </div>
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function openModal(modalId) {
+      document.getElementById(modalId).style.display = 'flex';
+    }
+
+    function closeModal(modalId) {
+      document.getElementById(modalId).style.display = 'none';
+    }
+
+    function createTeam() {
+      const name = document.getElementById('team-name').value;
+      const description = document.getElementById('team-description').value;
+
+      const result = teamManager.createTeam({ name, description });
+
+      if (result.success) {
+        closeModal('create-team-modal');
+        document.getElementById('create-team-form').reset();
+        initPage();
+      } else {
+        alert(result.message);
+      }
+    }
+
+    function openAddMember(teamId) {
+      document.getElementById('member-team-id').value = teamId;
+      openModal('add-member-modal');
+    }
+
+    function addMember() {
+      const teamId = document.getElementById('member-team-id').value;
+      const name = document.getElementById('member-name').value;
+      const email = document.getElementById('member-email').value;
+
+      const result = teamManager.addMember(teamId, { name, email });
+
+      if (result.success) {
+        closeModal('add-member-modal');
+        document.getElementById('add-member-form').reset();
+        initPage();
+      } else {
+        alert(result.message);
+      }
+    }
+
+    function openAssignTask(teamId) {
+      const team = teamManager.getTeamById(teamId);
+      document.getElementById('assign-team-id').value = teamId;
+
+      const memberSelect = document.getElementById('assign-task-member');
+      memberSelect.innerHTML = team.members.map(m => 
+        `<option value="${m.id}">${m.name} (${m.email})</option>`
+      ).join('');
+
+      openModal('assign-task-modal');
+    }
+
+    function assignTask() {
+      const teamId = document.getElementById('assign-team-id').value;
+      const title = document.getElementById('assign-task-title').value;
+      const description = document.getElementById('assign-task-description').value;
+      const assignedTo = document.getElementById('assign-task-member').value;
+      const dueDate = document.getElementById('assign-task-date').value;
+      const priority = document.getElementById('assign-task-priority').value;
+
+      const result = teamManager.assignTask(teamId, {
+        title,
+        description,
+        assignedTo,
+        dueDate,
+        priority
+      });
+
+      if (result.success) {
+        closeModal('assign-task-modal');
+        document.getElementById('assign-task-form').reset();
+        initPage();
+      } else {
+        alert(result.message);
+      }
+    }
+
+    document.getElementById('create-team-btn').addEventListener('click', () => openModal('create-team-modal'));
+    document.getElementById('logout-btn').addEventListener('click', () => authManager.logout());
+
+    document.querySelectorAll('.modal-overlay').forEach(overlay => {
+      overlay.addEventListener('click', (e) => {
+        if (e.target === overlay) {
+          overlay.style.display = 'none';
+        }
+      });
+    });
+
+    initPage();
+  </script>
+</body>
+</html>

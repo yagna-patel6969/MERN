@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login / Sign Up - TaskMaster</title>
+  <link rel="stylesheet" href="css/theme.css">
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/components.css">
+  <style>
+    .auth-container {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 2rem;
+      background: linear-gradient(135deg, #0f0f1e 0%, #1a1a2e 100%);
+    }
+
+    .auth-card {
+      background: var(--bg-secondary);
+      border: 1px solid var(--border-color);
+      border-radius: 16px;
+      padding: 3rem;
+      max-width: 450px;
+      width: 100%;
+      box-shadow: var(--shadow-lg);
+    }
+
+    .auth-header {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .auth-logo {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+    }
+
+    .auth-tabs {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .auth-tab {
+      flex: 1;
+      padding: 0.75rem;
+      background: var(--bg-tertiary);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      cursor: pointer;
+      text-align: center;
+      font-weight: 500;
+      transition: all var(--transition-fast);
+    }
+
+    .auth-tab.active {
+      background: var(--gradient-primary);
+      color: white;
+      border-color: transparent;
+    }
+
+    .auth-form {
+      display: none;
+    }
+
+    .auth-form.active {
+      display: block;
+    }
+
+    .theme-toggle-auth {
+      position: fixed;
+      top: 1rem;
+      right: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <button id="theme-toggle" class="theme-toggle theme-toggle-auth">🌙</button>
+
+  <div class="auth-container">
+    <div class="auth-card fade-in">
+      <div class="auth-header">
+        <div class="auth-logo">✓</div>
+        <h1>TaskMaster</h1>
+        <p class="text-muted">Manage tasks, collaborate with teams, achieve more</p>
+      </div>
+
+      <div class="auth-tabs">
+        <div class="auth-tab active" data-tab="login">Login</div>
+        <div class="auth-tab" data-tab="signup">Sign Up</div>
+      </div>
+
+      <!-- Login Form -->
+      <form id="login-form" class="auth-form active">
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" id="login-email" class="form-input" placeholder="your@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" id="login-password" class="form-input" placeholder="••••••••" required>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          Login
+        </button>
+
+        <p class="text-center text-muted mt-3" style="font-size: 0.875rem;">
+          Demo: Use any email/password to create an account
+        </p>
+      </form>
+
+      <!-- Sign Up Form -->
+      <form id="signup-form" class="auth-form">
+        <div class="form-group">
+          <label class="form-label">Name</label>
+          <input type="text" id="signup-name" class="form-input" placeholder="John Doe" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input type="email" id="signup-email" class="form-input" placeholder="your@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label class="form-label">Password</label>
+          <input type="password" id="signup-password" class="form-input" placeholder="••••••••" required minlength="6">
+          <small class="text-muted">At least 6 characters</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%;">
+          Create Account
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <script src="js/theme.js"></script>
+  <script src="js/auth.js"></script>
+  <script>
+    // Tab switching
+    document.querySelectorAll('.auth-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        const tabName = tab.dataset.tab;
+        
+        document.querySelectorAll('.auth-tab').forEach(t => t.classList.remove('active'));
+        document.querySelectorAll('.auth-form').forEach(f => f.classList.remove('active'));
+        
+        tab.classList.add('active');
+        document.getElementById(`${tabName}-form`).classList.add('active');
+      });
+    });
+
+    // Login form
+    document.getElementById('login-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const email = document.getElementById('login-email').value;
+      const password = document.getElementById('login-password').value;
+      
+      const result = authManager.login(email, password);
+      
+      if (result.success) {
+        window.location.href = 'index.html';
+      } else {
+        alert(result.message);
+      }
+    });
+
+    // Sign up form
+    document.getElementById('signup-form').addEventListener('submit', (e) => {
+      e.preventDefault();
+      
+      const name = document.getElementById('signup-name').value;
+      const email = document.getElementById('signup-email').value;
+      const password = document.getElementById('signup-password').value;
+      
+      const result = authManager.register({ name, email, password });
+      
+      if (result.success) {
+        alert('Account created successfully! Please login.');
+        document.querySelector('[data-tab="login"]').click();
+        document.getElementById('login-email').value = email;
+      } else {
+        alert(result.message);
+      }
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+                    <!--Metho-1 (only html)-->  
+    <input   type="button" onclick="alert('moj')" value="click me1">
+                    <!-- Method-2 (html+js)-->
+    <input   type="button" onclick="a()" value="click me2">
+                    <!-- Method-3 (html + js(with id))-->
+    <input type="button" value="clickme3" id="eid">
+
+    <!-- ---------------------------------------- -->
+
+    <button onclick="alert(this.innerHTML)">it shows what writtent in html code</button>
+
+    <!-- ----------------------------->
+</body>
+<script>
+     function a(){
+        alert('moj')
+    }
+    eid.onclick = function b(){
+        alert('moj')
+    }
+</script>
+</html>
