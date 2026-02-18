@@ -1,0 +1,27 @@
+<!-- for that you have to decler function sepret not in addEvent Listener -->
+ <!-- Syntex
+    element.removeEventListener("Event name",function
+ -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <input type="button" value="click me"> 
+</body>
+<script>
+    let a = document.querySelector("input")
+
+    function example(){
+        a.style.color="red"
+    }
+
+    a.addEventListener("click",example);
+    a.removeEventListener("click",example);
+
+</script>
+</html>

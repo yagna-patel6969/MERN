@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style>
+		div{
+			height: 200px;
+			width: 200px;
+			border: solid red 3px;
+			animation-name: div;
+			animation-duration: 3s;
+		    position: absolute;
+			top: 0%;
+	    	left: 50%;
+	    	animation-iteration-count: infinite;
+		}
+			@keyframes div {
+	    0%{
+	        top: 0;
+	        left: 50%;
+	        background-color: blue;
+	    }
+	    33.33%{
+	        top: 50%;
+	        left: 80%;
+	        background-color: red;
+
+	    }
+	    66.66%{
+	        top: 50%;
+	        left: 20%;
+	        background-color: blueviolet;
+	    }
+	        100%{
+	        top: 0;
+	        left: 50%;
+	        background-color: blue;
+	    }
+	}
+	</style>
+</head>
+<body>
+	<div></div>
+</body>
+</html>

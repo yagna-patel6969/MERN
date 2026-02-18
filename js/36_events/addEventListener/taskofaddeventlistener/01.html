@@ -1,0 +1,30 @@
+<!-- count how many word user typed in input box also typed word in -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<input type="text">
+    
+</body>
+
+<script>
+    let a = document.querySelector("input")
+
+    a.addEventListener("input",function(details){
+        
+        if(details.data !== null && details.data !==" "){
+            console.log("count")
+            console.log(details.data);
+        }
+    })
+
+    
+
+</script>
+
+</html>
