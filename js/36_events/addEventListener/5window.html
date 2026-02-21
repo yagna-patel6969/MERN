@@ -1,0 +1,53 @@
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+            padding:0px;
+            font-family:Helvetica, sans-serif;
+        }
+
+        html,body{
+            height: 100%;
+            width: 100%;
+            background-color: #222;
+        }
+        #main{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        h1{
+            color: #555;
+            font-size: 10rem;
+            font-weight:300px;
+            user-select: none;
+        }
+    </style>
+ </head>
+ <body>
+    <div id="main">
+        <h1>type key</h1>
+    </div>
+    
+ </body>
+ <script>
+    let h1=document.querySelector("h1")
+    let sel = window.addEventListener("keydown",function(dets){
+        if (dets.key === " ") {
+            h1.textContent="spc"
+        }
+        else{
+        h1.textContent=dets.key
+        console.log(dets.key)
+        }
+    })
+ </script>
+ </html>

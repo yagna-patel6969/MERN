@@ -1,0 +1,28 @@
+<!-- Change Event tab chalta hai jab input ke select ya textarea me change hota hai -->
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+ </head>
+ <body>
+    <h3 id="heading">Choose Your device</h3>
+    <SELECT>
+        <!-- Console me value me likah hua aayega so value likhna jaruri hai -->
+        <OPTION value="apple">Apple</OPTION>
+        <OPTION value="samsung">Samsung</OPTION>
+        <OPTION value="viveo">Viveo</OPTION>
+        <OPTION value="oppo">Oppo</OPTION>
+    </SELECT>
+ </body>
+ <script>
+    let sel = document.querySelector("select")
+    let head =document.querySelector("h3")
+
+    sel.addEventListener("change",function(dets){
+        console.log(dets.target.value);
+        head.textContent = `${dets.target.value} Device selected`
+    })
+ </script>
+ </html>

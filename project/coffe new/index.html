@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brew & Bean – Artisan Coffee House 3D</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <!-- Three.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+    <!-- GSAP + ScrollTrigger -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ===== LOADING SCREEN ===== -->
+    <div id="loader">
+        <div class="loader-inner">
+            <div class="loader-cup">☕</div>
+            <div class="loader-text">Brewing your experience…</div>
+            <div class="loader-bar"><div class="loader-fill"></div></div>
+        </div>
+    </div>
+
+    <!-- ===== NAVIGATION ===== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="logo">Brew <span>&</span> Bean</div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#home"    class="nav-link">Home</a></li>
+                <li><a href="#about"   class="nav-link">About</a></li>
+                <li><a href="#menu"    class="nav-link">Menu</a></li>
+                <li><a href="#reviews" class="nav-link">Reviews</a></li>
+                <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ===== HERO SECTION ===== -->
+    <section id="home" class="hero">
+        <!-- Three.js renders here -->
+        <canvas id="hero-canvas"></canvas>
+
+        <div class="hero-content" id="hero-content">
+            <div class="hero-badge">✦ Est. 2018 ✦</div>
+            <h1 class="hero-title" id="hero-title">Brew <span class="gold">&</span> Bean</h1>
+            <p class="hero-subtitle" id="hero-subtitle">Where Every Cup Tells a Story</p>
+            <a href="#menu" class="cta-button magnetic-btn" id="cta-btn">
+                <span>Explore Our Menu</span>
+                <div class="btn-glow"></div>
+            </a>
+            <div class="scroll-hint">
+                <span>Scroll to explore</span>
+                <div class="scroll-line"></div>
+            </div>
+        </div>
+
+        <!-- Floating 3D labels -->
+        <div class="float-label fl-1">☕ Espresso</div>
+        <div class="float-label fl-2">🫘 Single Origin</div>
+        <div class="float-label fl-3">🌿 Organic</div>
+    </section>
+
+    <!-- ===== ABOUT SECTION ===== -->
+    <section id="about" class="about">
+        <div class="section-bg-text">STORY</div>
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h2 class="section-title">Our Story</h2>
+                <p class="section-subtitle">Crafted with Passion Since 2018</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text reveal-left">
+                    <h3>A Love Letter to Coffee</h3>
+                    <p>Since 2018, Brew &amp; Bean has been serving the finest artisan coffee in town. We source our beans from sustainable farms across Ethiopia, Colombia, and Brazil, ensuring every cup delivers an exceptional experience.</p>
+                    <p>Our expert baristas are trained in the art of coffee making, from classic espresso to modern pour-over techniques. We believe coffee is more than a beverage—it's a ritual, a moment of peace in your busy day.</p>
+                    <div class="about-stats">
+                        <div class="stat-item tilt-card">
+                            <h4 class="count-up" data-target="7">0</h4>
+                            <p>Years Brewing</p>
+                        </div>
+                        <div class="stat-item tilt-card">
+                            <h4 class="count-up" data-target="15000">0</h4>
+                            <p>Happy Customers</p>
+                        </div>
+                        <div class="stat-item tilt-card">
+                            <h4 class="count-up" data-target="50">0</h4>
+                            <p>Coffee Varieties</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-image reveal-right">
+                    <div class="image-3d-wrapper">
+                        <div class="image-placeholder">
+                            <img src="logo.png" alt="Brew & Bean Logo">
+                        </div>
+                        <div class="image-glow"></div>
+                        <div class="orbit-ring ring-1"></div>
+                        <div class="orbit-ring ring-2"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== MENU SECTION ===== -->
+    <section id="menu" class="menu">
+        <div class="section-bg-text">MENU</div>
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h2 class="section-title">Our Menu</h2>
+                <p class="section-subtitle">Handcrafted Beverages &amp; Fresh Pastries</p>
+            </div>
+            <div class="menu-categories">
+
+                <!-- Hot Beverages -->
+                <div class="menu-category reveal-up">
+                    <div class="category-header">
+                        <span class="category-icon">♨️</span>
+                        <h3>Hot Beverages</h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item tilt-card">
+                            <div class="item-header">
+                                <h4>Espresso</h4>
+                                <span class="price">₹120</span>
+                            </div>
+                            <p>Rich, bold shot of pure coffee perfection</p>
+                            <div class="item-glow"></div>
+                        </div>
+                        <div class="menu-item tilt-card">
+                            <div class="item-header">
+                                <h4>Cappuccino</h4>
+                                <span class="price">₹180</span>
+                            </div>
+                            <p>Espresso with steamed milk and velvety foam</p>
+                            <div class="item-glow"></div>
+                        </div>
+                        <div class="menu-item tilt-card">
+                            <div class="item-header">
+                                <h4>Caramel Latte</h4>
+                                <span class="price">₹220</span>
+                            </div>
+                            <p>Smooth espresso with caramel and steamed milk</p>
+                            <div class="item-glow"></div>
+                        </div>
+                        <div class="menu-item tilt-card">
+                            <div class="item-header">
+                                <h4>Flat White</h4>
+                                <span class="price">₹200</span>
+                            </div>
+                            <p>Double espresso with microfoam milk</p>
+                            <div class="item-glow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cold Beverages -->
+                <div class="menu-category reveal-up">
+                    <div class="category-header">
+                        <span class="category-icon">🧊</span>
+                        <h3>Cold Beverages</h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item tilt-card">
+                            <div class="item-header">
+                                <h4>Iced Americano</h4>
+                                <span class="price">₹160</span>
+                            </div>
+                            <p>Espresso over ice with cold water</p>
+                            <div class="item-glow"></div>
+                        </div>
+                        <div class="menu-item tilt-card">
+                            <div class="item-header">
+                                <h4>Cold Brew</h4>
+                                <span class="price">₹190</span>
+                            </div>
+                            <p>Smooth, slow-steeped coffee served over ice</p>
+                            <div class="item-glow"></div>
+                        </div>
+                        <div class="menu-item tilt-card">
+                            <div class="item-header">
+                                <h4>Iced Mocha</h4>
+                                <span class="price">₹240</span>
+                            </div>
+                            <p>Chocolate and espresso with cold milk</p>
+                            <div class="item-glow"></div>
+                        </div>
+                        <div class="menu-item tilt-card">
+                            <div class="item-header">
+                                <h4>Frappe</h4>
+                                <span class="price">₹250</span>
+                            </div>
+                            <p>Blended ice coffee with whipped cream</p>
+                            <div class="item-glow"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Pastries -->
+                <div class="menu-category reveal-up">
+                    <div class="category-header">
+                        <span class="category-icon">🥐</span>
+                        <h3>Pastries &amp; Snacks</h3>
+                    </div>
+                    <div class="menu-items">
+                        <div class="menu-item tilt-card">
+                            <div class="item-header">
+                                <h4>Croissant</h4>
+                                <span class="price">₹100</span>
+                            </div>
+                            <p>Buttery, flaky French pastry</p>
+                            <div class="item-glow"></div>
+                        </div>
+                        <div class="menu-item tilt-card">
+                            <div class="item-header">
+                                <h4>Chocolate Muffin</h4>
+                                <span class="price">₹120</span>
+                            </div>
+                            <p>Rich chocolate muffin with chocolate chips</p>
+                            <div class="item-glow"></div>
+                        </div>
+                        <div class="menu-item tilt-card">
+                            <div class="item-header">
+                                <h4>Blueberry Cheesecake</h4>
+                                <span class="price">₹180</span>
+                            </div>
+                            <p>Creamy cheesecake with blueberry topping</p>
+                            <div class="item-glow"></div>
+                        </div>
+                        <div class="menu-item tilt-card">
+                            <div class="item-header">
+                                <h4>Sandwich Combo</h4>
+                                <span class="price">₹280</span>
+                            </div>
+                            <p>Grilled sandwich with coffee of your choice</p>
+                            <div class="item-glow"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== REVIEWS SECTION ===== -->
+    <section id="reviews" class="reviews">
+        <div class="section-bg-text">LOVE</div>
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h2 class="section-title">Customer Reviews</h2>
+                <p class="section-subtitle">What Our Coffee Lovers Say</p>
+            </div>
+            <div class="reviews-grid">
+
+                <div class="review-card tilt-card reveal-up">
+                    <div class="review-card-glow"></div>
+                    <div class="review-header">
+                        <div class="avatar">AS</div>
+                        <div class="reviewer-info">
+                            <h4>Amit Sharma</h4>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"The best espresso I've had in years. The ambiance is perfect for working or just relaxing with a book. Highly recommended!"</p>
+                </div>
+
+                <div class="review-card tilt-card reveal-up">
+                    <div class="review-card-glow"></div>
+                    <div class="review-header">
+                        <div class="avatar">JP</div>
+                        <div class="reviewer-info">
+                            <h4>Jessica Patel</h4>
+                            <div class="stars">★★★★★</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Their caramel latte is a dream! Also, the blueberry cheesecake is a must-try. Staff is super friendly."</p>
+                </div>
+
+                <div class="review-card tilt-card reveal-up">
+                    <div class="review-card-glow"></div>
+                    <div class="review-header">
+                        <div class="avatar">RK</div>
+                        <div class="reviewer-info">
+                            <h4>Rahul Kumar</h4>
+                            <div class="stars">★★★★☆</div>
+                        </div>
+                    </div>
+                    <p class="review-text">"Great coffee and fast service. Amazing cold brew on a hot day — you can taste the quality in every sip."</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== GALLERY SECTION ===== -->
+    <section id="gallery" class="gallery">
+        <div class="section-bg-text">GALLERY</div>
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h2 class="section-title">Gallery</h2>
+                <p class="section-subtitle">Moments Worth Savoring</p>
+            </div>
+            <div class="gallery-grid">
+                <div class="gallery-item reveal-scale">
+                    <div class="gallery-placeholder">
+                        <img src="espresso.png" alt="Espresso Art">
+                        <div class="gallery-overlay"><span>Espresso Art</span></div>
+                    </div>
+                </div>
+                <div class="gallery-item reveal-scale">
+                    <div class="gallery-placeholder">
+                        <img src="pastries.png" alt="Fresh Pastries">
+                        <div class="gallery-overlay"><span>Fresh Pastries</span></div>
+                    </div>
+                </div>
+                <div class="gallery-item reveal-scale">
+                    <div class="gallery-placeholder">
+                        <img src="desserts.png" alt="Desserts">
+                        <div class="gallery-overlay"><span>Desserts</span></div>
+                    </div>
+                </div>
+                <div class="gallery-item reveal-scale">
+                    <div class="gallery-placeholder">
+                        <img src="Ambiance.png" alt="Cozy Ambiance">
+                        <div class="gallery-overlay"><span>Cozy Ambiance</span></div>
+                    </div>
+                </div>
+                <div class="gallery-item reveal-scale">
+                    <div class="gallery-placeholder">
+                        <img src="latte.png" alt="Latte Art">
+                        <div class="gallery-overlay"><span>Latte Art</span></div>
+                    </div>
+                </div>
+                <div class="gallery-item reveal-scale">
+                    <div class="gallery-placeholder">
+                        <img src="interior.png" alt="Interior">
+                        <div class="gallery-overlay"><span>Interior</span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section id="contact" class="contact">
+        <div class="section-bg-text">VISIT</div>
+        <div class="container">
+            <div class="section-header reveal-up">
+                <h2 class="section-title">Visit Us</h2>
+                <p class="section-subtitle">We'd Love to See You</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="info-card tilt-card reveal-left">
+                        <div class="info-icon">📍</div>
+                        <h3>Location</h3>
+                        <p>123 Coffee Street<br>Downtown Area<br>Gujarat, India 380001</p>
+                    </div>
+                    <div class="info-card tilt-card reveal-left">
+                        <div class="info-icon">⏰</div>
+                        <h3>Hours</h3>
+                        <p>Monday – Friday: 7:00 AM – 10:00 PM<br>Saturday – Sunday: 8:00 AM – 11:00 PM</p>
+                    </div>
+                    <div class="info-card tilt-card reveal-left">
+                        <div class="info-icon">📞</div>
+                        <h3>Contact</h3>
+                        <p>Phone: +91 98765 43210<br>Email: hello@brewandbean.com</p>
+                    </div>
+                </div>
+                <div class="contact-form reveal-right">
+                    <h3>Get In Touch</h3>
+                    <form id="contact-form">
+                        <div class="input-group">
+                            <input type="text" placeholder="Your Name" required>
+                            <div class="input-line"></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="email" placeholder="Your Email" required>
+                            <div class="input-line"></div>
+                        </div>
+                        <div class="input-group">
+                            <input type="tel" placeholder="Phone Number">
+                            <div class="input-line"></div>
+                        </div>
+                        <div class="input-group">
+                            <textarea placeholder="Your Message" rows="5" required></textarea>
+                            <div class="input-line"></div>
+                        </div>
+                        <button type="submit" class="submit-button magnetic-btn">
+                            <span>Send Message</span>
+                            <div class="btn-glow"></div>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer reveal-up">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h4>Brew <span class="gold">&</span> Bean</h4>
+                    <p>Crafting exceptional coffee experiences since 2018.</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Follow Us</h4>
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">Facebook</a>
+                        <a href="#">Twitter</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Brew &amp; Bean. All rights reserved. ✦ Made with ❤️ &amp; ☕</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

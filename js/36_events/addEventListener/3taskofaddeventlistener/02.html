@@ -1,0 +1,62 @@
+<!-- Create your own upload btn -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+            padding:0px;
+            font-family:Helvetica, sans-serif;
+        }
+
+        html,body{
+            height: 100%;
+            width: 100%;
+            background-color: #222;
+        }
+        #main{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        input{
+            display: none;
+        }
+        #btn{
+            background-color: rgb(82, 179, 82);
+            font-size:24px;
+            border-radius: 12px;
+            user-select: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <input type="file" id="inp">
+        <div id="btn">
+            Upload File
+        </div>
+    </div>
+</body>
+<script>
+    let inp = document.querySelector("#inp")
+    let btn = document.querySelector("#btn")
+
+    btn.addEventListener("click",function(){
+        inp.click()
+    })
+
+    inp.addEventListener("change",function(dets){
+        btn.textContent=dets.target.files[0].name;
+        console.log(dets.target.files[0].name)
+    })
+
+</script>
+</html>
