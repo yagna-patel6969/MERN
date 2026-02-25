@@ -1,0 +1,115 @@
+<!-- Creare a templet -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+        }
+        html,body{
+            height: 100%;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0.554);
+        }
+        input{
+            display: block;
+            padding: 5px;
+            margin-bottom: 10px;
+        }
+        h2{
+            color: whitesmoke;
+        }
+        #main{
+            padding: 20px;
+        }
+        .card{
+            display: inline-block;
+            margin: 10px;
+            padding: 20px;
+            max-width: 300px;
+            color: whitesmoke;
+            border: solid #e3e3e3 2px;
+            border-radius: 10px;
+        }
+        .propic{
+            height: 50px;
+            width: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+        }
+        .propic img{
+            height: 100%;
+            width: 100%;
+            object-fit: cover;
+        }
+        .card h5{
+            margin-top: 10px;
+        }
+        .card h4{
+            margin-top: 10px;
+        }
+        .card h3{
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <form>
+            <input type="text" placeholder="pro link">
+            <input type="text" placeholder="name">
+            <input type="text" placeholder="Tag Line">
+            <input type="text" placeholder="Discription">
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+<script>
+    let input = document.querySelectorAll("input");
+
+    let main = document.querySelector("#main")
+
+    let form = document.querySelector("form");
+    form.addEventListener("submit",function(dets){
+        dets.preventDefault();
+        for (let i = 0; i <4; i++) {
+            console.log(input[i].value);
+        }
+
+        // Create Dynamic Templet
+        let card = document.createElement("div");
+        card.classList.add("card")
+
+        let propic = document.createElement("div");
+        propic.classList.add("propic")
+
+        let img = document.createElement("img")
+        img.setAttribute("src",input[0].value)
+
+        let h3 =document.createElement("h3");
+        h3.textContent=input[1].value;
+
+        let h4 =document.createElement("h4");
+        h4.textContent=input[2].value;
+
+        let h5 =document.createElement("h5");
+        h5.textContent=input[3].value;
+
+        // add tag in to their parents 
+
+        propic.appendChild(img);
+        card.appendChild(propic);
+        card.appendChild(h3);
+        card.appendChild(h4);
+        card.appendChild(h5);
+
+        // add card into main div
+
+        main.appendChild(card)
+    })
+</script>
+</html>

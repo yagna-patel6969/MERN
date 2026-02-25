@@ -1,0 +1,58 @@
+<!-- If we clicked on any option it will get linr through -->
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+        }
+
+        html,body{
+            height: 100%;
+            width: 100%;
+        }
+        body{
+            position: relative;
+            overflow: hidden;
+            background-color: #333;
+        }
+        li{
+            color: azure;
+            font-size: 30px;
+        }
+        
+        .lt{
+            text-decoration: line-through;
+        }
+    </style>
+ </head>
+ <body>
+    <ul>
+        <li>Banana</li>
+        <li>Orange</li>
+        <li>Mango</li>
+    </ul>
+ </body>
+ <script>
+    document.querySelector("ul").addEventListener("click",function(dets){
+        dets.target.style.textDecoration="Line-through";
+    });
+
+    // Second way
+
+    // document.querySelector("ul").addEventListener("click",function(dets){
+    //     dets.target.classList.add("lt");
+    // });
+
+    //Third Way(if already line through than its do normal and it's not than it's do line thorough)
+
+    // document.querySelector("ul").addEventListener("click",function(dets){
+    //     dets.target.classList.toggle("lt");
+    // });
+ </script>
+ </html>

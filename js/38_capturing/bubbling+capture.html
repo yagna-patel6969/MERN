@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+        }
+        body{
+            height: 100%;
+            width: 100%;
+            background-color: black;
+        }
+        .a{
+            height: 600px;
+            width: 80%;
+            background-color: red;
+        }
+        .b{
+            height: 500px;
+            width: 60%;
+            background-color: blue;
+        }
+        .c{
+            height: 300px;
+            width: 40%;
+            background-color:cadetblue;
+        }
+
+
+    </style>
+</head>
+<body>
+    <div class="a">
+        <div class="b">
+            <div class="c">
+                <button>Clicked me</button>
+            </div>
+        </div>
+    </div>
+</body>
+<script>
+
+let a = document.querySelector(".a");   
+let b = document.querySelector(".b");
+let c = document.querySelector(".c");
+let btn = document.querySelector("button");    
+
+btn.addEventListener("click",function(){
+    console.log("click on btn");
+},false);
+c.addEventListener("click",function(){
+    console.log("click on c");
+},true);
+b.addEventListener("click",function(){
+    console.log("click on b");
+},false);
+a.addEventListener("click",function(){
+    console.log("click on a");
+},true);
+
+</script>
+</html>
