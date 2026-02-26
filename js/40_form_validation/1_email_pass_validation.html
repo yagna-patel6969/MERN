@@ -1,0 +1,172 @@
+<!-- Email and Password Validation -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email & Password Validation</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+        }
+
+        body {
+            background-color: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        .form-container {
+            background-color: #111111;
+            padding: 40px;
+            border-radius: 12px;
+        border: 1px solid #333333;
+            width: 380px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+        }
+
+        h2 {
+            color: white;
+            text-align: center;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+            padding: 12px 15px;
+            margin-bottom: 5px;
+            border: 2px solid #333333;
+        border-radius: 8px;
+        background-color: #1a1a1a;
+        color: white;
+        font-size: 15px;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: #ffffff;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin-top: 20px;
+            background-color: #333333;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #555555;
+        }
+
+        small {
+            color: #ff4444;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        .hide {
+            display: none;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            color: #888888;
+            font-size: 13px;
+            margin-bottom: 6px;
+            display: block;
+        }
+        #correctemail,#correctpass{
+            display: none;
+            color: green;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h2>Login Form</h2>
+        <form id="form">
+
+            <!-- Email Field -->
+            <div class="input-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Enter your email">
+                <div class="hide" id="email-error">
+                    <small>Please enter a valid email (must contain @ and .)</small>
+                </div>
+                <small id="correctemail">Email is correct</small>
+            </div>
+
+            <!-- Password Field -->
+            <div class="input-group">
+                <label for="pass">Password</label>
+                <input type="password" id="pass" placeholder="Enter your password">
+                <div class="hide" id="pass-error">
+                    <small>Password must be at least 6 characters with 1 uppercase, 1 lowercase, 1 number & 1 special character (!@#$%^&*_-)</small>
+                </div>
+                <small id="correctpass">Password is correct</small>
+            </div>
+
+            <button type="submit" id="btn">Submit</button>
+        </form>
+    </div>
+</body>
+<script>
+    let form = document.querySelector("#form");
+    let email = document.querySelector("#email");
+    let pass = document.querySelector("#pass");
+    let emailError = document.querySelector("#email-error");
+    let passError = document.querySelector("#pass-error");
+    let correctemail = document.querySelector("#correctemail");
+    let correctpss = document.querySelector("#correctpass");
+
+    // Write your validation logic
+
+    form.addEventListener("submit", function(dets) {
+        dets.preventDefault();
+
+        // Email validation logic
+        let emailRegex = /^[a-zA-Z0-9._]+@[a-zA-Z0-9]+\.[a-zA-Z]{2,}$/;
+        let emailcheck = emailRegex.test(email.value);
+        console.log(emailcheck);
+        if (emailcheck === false) {
+            emailError.style.display = "initial";   
+            correctemail.style.display = "none";    
+        }
+        else{
+            emailError.style.display = "none";      
+            correctemail.style.display = "initial"; 
+        }
+        // Password validation  logic
+        let passRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_\-]).{6,}$/;
+        let passcheck = passRegex.test(pass.value);
+        console.log(passcheck);
+        if (passcheck === false) {
+            passError.style.display = "initial"; 
+            correctpss.style.display = "none"; 
+        }
+        else{
+            passError.style.display = "none";
+            correctpss.style.display = "initial";
+        }
+    });
+</script>
+</html>

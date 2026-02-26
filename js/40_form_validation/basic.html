@@ -1,0 +1,70 @@
+<!-- check the user name input is minimum 3 charecter or not  -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+        }
+        body{
+            background-color: black;
+        }
+
+        input,button,textarea,select{
+            display: block;
+            margin: 20px;
+            padding: 7px;
+
+        }
+        small{
+            color: red;
+            font-size: 12px;
+        }   
+        .hide{
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="form">
+        <form>
+        <input type="text"placeholder="Name" id="name">
+        <div class="hide">
+            <small>Your Name should be greter than 2 charecter</small>
+        </div>
+        <input type="email"placeholder="Email" id="email">
+        <input type="text"placeholder="Password" id="pass">
+        <select >
+            <option value="Gender" class="gen">Male</option>
+            <option value="Gender" class="gen">Femalke</option>
+            <option value="Gender" class="gen">Other</option>
+        </select>
+        <textarea rows="5" cols="20" id="textarea"></textarea>
+        <input type="submit" value="sumbmit" id="btn">
+    </form>
+    </div>
+</body>
+<script>
+    let form = document.querySelector("form");
+    let nm = document.querySelector("#name");
+    let email = document.querySelector("#email");
+    let pass = document.querySelector("#pass");
+    let gen = document.querySelector("select");
+    let textarea = document.querySelector("#textarea");
+    let btn = document.querySelector("#btn");
+
+    form.addEventListener("submit",function(dets){
+        dets.preventDefault();
+        if(nm.value.trim().length <= 2){
+            document.querySelector(".hide").style.display="initial";
+        }
+        else{
+            document.querySelector(".hide").style.display="none";
+        }
+    });
+</script>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+            margin: 0px;
+        }
+        body{
+            background-color: black;
+        }
+        input{
+            height: 30px;
+            margin: 10px;
+        }
+        h2{
+            color: whitesmoke;
+            font-size: 50px;
+            font-weight:900;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder="Enter a Charecter">
+    <h2>Total Number of Charecter : <span>0</span></h2>
+    <h2>Total Number of space : <span id="space">0</span></h2>
+    <h2>Total Number of left Charecter <span id="left"> 20</span> out of 20</h2>
+
+
+</body>
+<script>
+    let inp =document.querySelector("input")
+    let span =document.querySelector("span")
+    let space =document.querySelector("#space")
+    let left =document.querySelector("#left")
+
+    inp.addEventListener("input",function(){
+        span.textContent = inp.value.length;
+        space.textContent = inp.value.split(" ").length - 1;
+        let val = 20 - inp.value.length;
+        left.textContent = val;
+        if(val > 0){
+            left.style.color = "white";
+        }
+        else if(val < 0){
+            left.style.color = "red";
+        }
+        else{
+            left.style.color="green"
+        }
+    })
+
+</script>
+</html>
