@@ -1,0 +1,21 @@
+<!-- chahe aap isme kuchbhi store karvao likin ye usko string me convert kardega -->
+
+<!-- to arry vagera ke store karne ke liye hame usko string me convert karna padega fir bhi vo output me string hi return karega -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    localStorage.setItem("friends", JSON.stringify(["yagna","smit","ronak","krunal"]));
+
+    //to convert string back to array
+    let friends = JSON.parse(localStorage.getItem("friends"));
+</script>
+</html>
