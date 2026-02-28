@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    
+</body>
+<script>
+
+
+    function student(name,sid,dev){
+        this.Name=name;
+        this.StudentID=sid;
+        this.Devision=dev;
+    }
+
+    student.prototype.details=function(){
+        
+            let chooise = prompt("Which details you want:");
+            let h2 = document.createElement("h2");
+            if(chooise === "name"){
+                h2.textContent=this.Name;
+            }
+            else if (chooise === "sid"){
+                h2.textContent=this.StudentID;
+            }
+            else if(chooise === "div"){
+                h2.textContent=this.Devision;
+            }
+            else{
+                h2.textContent="Invalid Chooise";
+            }
+            h2.style.color="red";
+            document.body.append(h2);
+        }
+    
+    let a = new student ("Yagna",1,"a");
+    let b = new student ("Smit",2,"b");
+
+</script>
+</html>

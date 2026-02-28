@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    class pencile{
+        constructor(no,compnay,color){
+            this.Number=no;
+            this.Compnay=compnay;
+            this.Color=color;        
+        }
+        details(text){
+            let h2 = document.createElement("h2");
+            h2.textContent=text;
+            h2.style.color=this.Color;
+            document.body.append(h2);
+
+        }
+    }
+
+    let p1 = new pencile(1,"doms","red");
+    let p2 = new pencile(2,"natraj","black");
+</script>
+</html>

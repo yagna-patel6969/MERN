@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+</body>
+<script>
+    class user{
+        constructor(name,email,username){
+            this.Name=name;
+            this.Username=username;
+            this.Email=email;
+            this.Role="User";
+        }
+        message(text){
+            let h2 = document.createElement("h2");
+            h2.textContent=`${this.Username} : ${text}`;
+            h2.style.color="red";
+            document.body.append(h2);
+        }
+        role(){
+            // console.log(`You are a ${this.Role}`);(if you do this than you get a undefine also)
+            return`You are a ${this.Role}`;
+            // and if you dom this you will not get undefine
+        }
+    }
+    let user1 = new user ("Yagna","a@gmail.com","Yagna_Patel");
+    let user2 = new user ("Smit","b@gmail.com","Smit_bh");
+
+    class admin extends user{
+        constructor(name,email,username){
+            super(name,email,username);
+            this.Role="Admin";
+        }
+
+        remove(){
+            document.querySelectorAll("h2").forEach(function(elem){
+                elem.remove();
+            })
+        }
+    }
+    
+    let admin1 = new admin ("Y","ya@gmail.com","a_y");
+    let admin2 = new admin ("S","sa@gmail.com","a_s");
+
+</script>
+</html>
