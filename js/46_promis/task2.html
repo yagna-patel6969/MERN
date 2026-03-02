@@ -1,0 +1,48 @@
+<!-- 
+    1>Ghar par aao
+    2>Open the door
+    3>Go to BedRoom
+    4>Change the clothes
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let prom1 = new Promise(function(res,rej){
+        return res("Ghar par aao");
+    })
+
+    let prom1r = prom1.then(function(data){
+        console.log(data);
+        return new Promise(function(res,rej){
+            return res("Open the door");
+        })
+    })
+
+    let prom1rr = prom1r.then(function(data){
+        console.log(data);
+        return new Promise(function(res,rej){
+            return res("Go to BedRoom");
+        })    
+    })
+
+    let prom1rrr = prom1rr.then(function(data){
+        console.log(data);
+        return new Promise(function(res,rej){
+            return res("Change the clothes");
+        })
+    })
+
+    prom1rrr.then(function(data){
+        console.log(data);
+        
+    })
+</script>
+</html>

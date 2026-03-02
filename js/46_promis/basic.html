@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    let ans = new Promise((res,rej)=>{
+        if (true) {
+            return res();
+        }
+        // if(false){
+        //     return res();
+        // }
+        else{
+            return rej();
+        }
+    }
+    )
+    ans
+    .then(function(){
+        console.log("code chalgaya");
+        
+    })    
+    .catch(function(){
+        console.log(("code nahi chala"));
+        
+    })
+</script>
+</html>

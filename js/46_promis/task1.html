@@ -1,0 +1,42 @@
+<!-- 
+    ask a number from user between 0 to 9 and check it's below 5 or not if than resolve it else reject
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+
+    let num = prompt("Enter a number");
+
+    let prom = new Promise((res,rej)=>{
+
+        if(num<5){
+            return res();
+        }
+
+        else{
+            return rej();
+        }
+
+    }
+    )
+
+    prom
+    .then(function(){
+        console.log("number below 5");
+        
+    })
+    .catch(function(){
+        console.log("number above 5");
+        
+    })
+</script>
+</html>
